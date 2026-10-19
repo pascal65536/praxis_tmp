@@ -1,3 +1,4 @@
+# Это пример, создан для демонстрации
 print('Hello, world!')
 print('Hello, everyone!')
 print('Hello, world!')
