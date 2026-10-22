@@ -1,0 +1,28 @@
+from student import solve as student
+import base64
+
+_ENCODED = """
+cmVwbGFzZV9zZXQgPSBbCiAgICAoImh0dHAiLCAiIGh0dHAiKSwKICAgICgiaHR0cDovLyIsICJodHRwczovLyIpLAogICAgKCJIdHRwczovLyIsICJodHRwczovLyIpLAogICAgKCJodHRwczovdmsiLCAiaHR0cHM6Ly92ayIpLAogICAgKCJoaHRwczovLyIsICJodHRwczovLyIpLAogICAgKCJodHRwczp2ayIsICJodHRwczovL3ZrIiksCiAgICAoImh0dHBjOi8vIiwgImh0dHBzOi8vIiksCiAgICAoImh0dHBzLy8iLCAiaHR0cHM6Ly8iKSwKICAgICgiaHR0cHM6Ly92ay4gY29tLyIsICJodHRwczovL3ZrLnJ1LyIpLAogICAgKCIlM0EiLCAiOiIpLAogICAgKCIlMkQiLCAiLSIpLApdCgoKcmVwbGFzZV91cmxfc2V0ID0gWwogICAgKCJmYXN0LnZrLmNvbSIsICJ2ay5ydSIpLAogICAgKCJtLm9rLnJ1IiwgIm9rLnJ1IiksCiAgICAoIm0udmsuY29tIiwgInZrLnJ1IiksCiAgICAoIm0udmsucnUiLCAidmsucnUiKSwKICAgICgidmsuY29tIiwgInZrLnJ1IiksCiAgICAoInZrL2NvbSIsICJ2ay5ydSIpLApdCgoKZGVmIHNvbHZlKGxpbmUpOgogICAgZm9yIHJlcGwgaW4gcmVwbGFzZV9zZXQ6CiAgICAgICAgbGluZSA9IGxpbmUucmVwbGFjZSgqcmVwbCkKICAgIGlmIGxpbmUuc3RhcnRzd2l0aCgidC5tZS8iKToKICAgICAgICBsaW5lID0gImh0dHBzOi8vIiArIGxpbmUKICAgIGlmIGxpbmUuc3RhcnRzd2l0aCgidmsuY29tIik6CiAgICAgICAgbGluZSA9ICJodHRwczovLyIgKyBsaW5lCiAgICBpZiBsaW5lLnN0YXJ0c3dpdGgoInR0cHMiKToKICAgICAgICBsaW5lID0gImgiICsgbGluZQogICAgcmVzID0gbGlzdCgpCiAgICBmb3IgdXJsIGluIGxpbmUuc3BsaXQoKToKICAgICAgICBmb3IgcmVwbCBpbiByZXBsYXNlX3VybF9zZXQ6CiAgICAgICAgICAgIHVybCA9IHVybC5yZXBsYWNlKCpyZXBsKQogICAgICAgIHVybCA9IHVybC5zdHJpcCgiLCIpCiAgICAgICAgdXJsID0gdXJsLnN0cmlwKCI7IikKICAgICAgICBpZiAidmsucnUiIGluIHVybDoKICAgICAgICAgICAgdXJsID0gdXJsLnJlcGxhY2UoIiMiLCAiPyIpCiAgICAgICAgaWYgImh0dHBzOi8vIiBub3QgaW4gdXJsOgogICAgICAgICAgICBjb250aW51ZQogICAgICAgIHVybDAgPSB1cmwuc3BsaXQoIj8iKVswXQogICAgICAgIGlmIHVybDAgPT0gImh0dHBzOi8vdmsucnUiOgogICAgICAgICAgICBjb250aW51ZQogICAgICAgIHJlcy5hcHBlbmQodXJsMCkKCiAgICByZXR1cm4gcmVzCg==
+"""
+
+exec(base64.b64decode(_ENCODED).decode("utf-8"))
+
+
+with open('33.txt', encoding='utf8') as f:
+    filestr = f.readlines()
+
+
+counter = 0
+for line in filestr:
+    if not line:
+        continue
+    line = line.strip()
+    if not line:
+        continue
+    if solve(line) != student(line):
+        counter += 1
+        print(line)
+        print(solve(line))
+        print(student(line))
+print(f'{counter=}')
+print()

@@ -1,0 +1,44 @@
+https://dadata.ru/api/clean/name/
+https://content-watch.ru/text/
+https://jsonformatter.org/
+https://habr.com/ru/articles/881814/
+
+
+
+
+
+address="Красноярск"
+
+curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Token ${TOKEN}" -d '{ "query": $address }' https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/postal_unit
+
+LAT=56.006154
+LON=92.947142
+
+curl "https://static-maps.yandex.ru/1.x/?ll=${LON},${LAT}&z=17&l=map&size=650,450&pt=${LON},${LAT},pm2rdm" -o yandex_map.png
+
+
+fim yandex_map.png
+
+
+----
+
+name="миша котюков михалыч"
+
+
+curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Token ${TOKEN}"  -H "X-Secret: ${KEY}"  -d '[ "'"${name}"'" ]'  https://cleaner.dadata.ru/api/v1/clean/name
+
+----
+
+
+TEXT='Полный пример кода для проверки текста на PHP Предлагаем пример кода, который может помочь вам начать работу с нашим API. Код написан на языке PHP. Перед использованием не забудьте указать текст на проверку и ваш ключ доступа, который можно узнать на странице со списком параметров запроса. При взаимодействии с API необходимо использовать кодировку UTF-8.'
+
+curl -X POST "https://content-watch.ru/public/api/" -H "Accept: application/json" --data-urlencode "key=${TOKEN_CW}" --data-urlencode "test=1" --data-urlencode "text=${TEXT}"
+
+
+----
+
+
+curl wttr.in/Красноярск?lang=ru
+
+
+
