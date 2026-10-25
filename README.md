@@ -44,8 +44,9 @@
 60. [Zen Python](theory/600.md)
 69. [Создание проекта на Git](theory/690.md)
 70. [REST API](theory/700.md)
-70. [Flask начало](theory/710.md)
-70. [Шаблоны Jinja2 во Flask](theory/720.md)
+71. [Flask начало](theory/710.md)
+72. [Шаблоны Jinja2 во Flask](theory/720.md)
+73. [Обработка HTML форм во Flask](theory/730.md)
 90. [HTML](theory/900.md)
 
 
