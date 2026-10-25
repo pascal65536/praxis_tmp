@@ -47,6 +47,9 @@
 71. [Flask начало](theory/710.md)
 72. [Шаблоны Jinja2 во Flask](theory/720.md)
 73. [Обработка HTML форм во Flask](theory/730.md)
+74. [Передача файлов на сервер с помощью Flask](theory/740.md)
+75. [UUID в Python](theory/750.md)
+76. [Message-Digest Algorithm 5](theory/760.md)
 90. [HTML](theory/900.md)
 
 
