@@ -3,7 +3,7 @@ import math
 
 # === ЗАДАЧА 1 ===
 class Wallet:
-    def __init__(self, inital_balance):
+    def __init__(self, initial_balance):
         pass  # Ваш код
 
     def deposit(self, amount):
