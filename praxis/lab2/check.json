@@ -1,0 +1,305 @@
+[
+  {
+    "id": 1,
+    "input": "https://t.me/tvoe_vremya_krsk/3194",
+    "output": [
+      "https://t.me/tvoe_vremya_krsk/3194"
+    ]
+  },
+  {
+    "id": 2,
+    "input": "https://vk.com/feed?section=search&q=%23%D0%B2%D1%8B%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC",
+    "output": [
+      "https://vk.ru/feed"
+    ]
+  },
+  {
+    "id": 3,
+    "input": "https://vk.com/wall-15812938?w=wall-15812938_7378%2Fall",
+    "output": [
+      "https://vk.ru/wall-15812938"
+    ]
+  },
+  {
+    "id": 4,
+    "input": "Заведующий",
+    "output": []
+  },
+  {
+    "id": 5,
+    "input": "https://sun9-40.userapi.com/impg/TyZ_F7qWsS9NEQ-dkPOK_AbJvWVC9CCGNOr2xQ/m3KyIU5kpVg.jpg?size=605x807&quality=95&sign=2365625c827eae5ffdb8863686612c10&c_uniq_tag=LXhG0WRGo6SrokqGVarWb4r1vrIkg6wqDYi_GfqZwes&type=album",
+    "output": [
+      "https://sun9-40.userapi.com/impg/TyZ_F7qWsS9NEQ-dkPOK_AbJvWVC9CCGNOr2xQ/m3KyIU5kpVg.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "input": "https://vk.com/wall-217205976_454    https://vk.com/wall-217205976_455",
+    "output": [
+      "https://vk.ru/wall-217205976_454",
+      "https://vk.ru/wall-217205976_455"
+    ]
+  },
+  {
+    "id": 7,
+    "input": "https://vk.com/wall-207862709_690  https://vk.com/wall-207862709_691  https://vk.com/wall-207862709_692  https://vk.com/wall-207862709_693  https://vk.com/wall-207862709_694",
+    "output": [
+      "https://vk.ru/wall-207862709_690",
+      "https://vk.ru/wall-207862709_691",
+      "https://vk.ru/wall-207862709_692",
+      "https://vk.ru/wall-207862709_693",
+      "https://vk.ru/wall-207862709_694"
+    ]
+  },
+  {
+    "id": 8,
+    "input": "https://vk.com/public203552167?z=photo-203552167_457239773%2Falbum-203552167_00%2Frev",
+    "output": [
+      "https://vk.ru/public203552167"
+    ]
+  },
+  {
+    "id": 9,
+    "input": "https://vk.com/club145371898?w=wall-145371https://vk.com/club145371898?w=wall-145371898_4153 898_4154",
+    "output": [
+      "https://vk.ru/club145371898",
+      "https://vk.ru/club145371898"
+    ]
+  },
+  {
+    "id": 10,
+    "input": "https://vk. com/zgrcekit",
+    "output": [
+      "https://vk.ru/zgrcekit"
+    ]
+  },
+  {
+    "id": 11,
+    "input": "https://telesco.pe/rusmikola/807, https://t.me/, https://vk.com/raspopin_n?w=wall2713687_1282rusmikola/808,",
+    "output": [
+      "https://telesco.pe/rusmikola/807",
+      "https://t.me/",
+      "https://vk.ru/raspopin_n"
+    ]
+  },
+  {
+    "id": 12,
+    "input": "https://vk.com/public211959405?w=wall-211959405_870",
+    "output": [
+      "https://vk.ru/public211959405"
+    ]
+  },
+  {
+    "id": 13,
+    "input": "https://vk.com/digitalkrsk24?w=wall-19280849, https://t.me/kras_digital/2583, 4_3929 , https://ok.ru/digitalkrsk24/topic/156430883080384",
+    "output": [
+      "https://vk.ru/digitalkrsk24",
+      "https://t.me/kras_digital/2583",
+      "https://ok.ru/digitalkrsk24/topic/156430883080384"
+    ]
+  },
+  {
+    "id": 14,
+    "input": "httpsvk.comclub192877911#:~:text=%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%BE%D0%B5%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B5%202024,%D0%9F%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%BF%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D0%B2%D1%88%D0%B8%D1%85%D1%81%D1%8F",
+    "output": []
+  },
+  {
+    "id": 15,
+    "input": "https://vk.com/httpsvk.comclub211825265?w=wall-211825265_781",
+    "output": [
+      "https://vk.ru/"
+    ]
+  },
+  {
+    "id": 16,
+    "input": "http://vk.com/public217731299",
+    "output": [
+      "https://vk.ru/public217731299"
+    ]
+  },
+  {
+    "id": 17,
+    "input": "httpc://vk.com/public217383223",
+    "output": [
+      "https://vk.ru/public217383223"
+    ]
+  },
+  {
+    "id": 18,
+    "input": "Https://vk.com/club217442327",
+    "output": [
+      "https://vk.ru/club217442327"
+    ]
+  },
+  {
+    "id": 19,
+    "input": "https//vk.com/public217115339",
+    "output": [
+      "https://vk.ru/public217115339"
+    ]
+  },
+  {
+    "id": 20,
+    "input": "https//vk.com/public217115339",
+    "output": [
+      "https://vk.ru/public217115339"
+    ]
+  },
+  {
+    "id": 21,
+    "input": "Ссылка на официальную страницу",
+    "output": []
+  },
+  {
+    "id": 22,
+    "input": "https://vk.com/aod ms24",
+    "output": [
+      "https://vk.ru/aod"
+    ]
+  },
+  {
+    "id": 23,
+    "input": "17 марта - последний день для голосования. Избирательные участки работают с 8.00 - 20.00  Каждый проголосовавший может принять участие в Викторине. Викторина посвящена 90-летию образования Красноярского края и направлена на вовлечение жителей в изучение природы, истории и культуры родного региона. Ознакомиться с условиями участия и полным списком победителей в викторине можно на сайте викторина2024.рф. На все интересующие вопросы ответят по телефону единой горячей линии: 8-800-100-14-24  #выбираемПрезидента #Красноярскийкрай",
+    "output": []
+  },
+  {
+    "id": 24,
+    "input": "после опубликования поста активную ссылку на него нужно разместитьь в гугл форме здесь https://docs.google.com/spreadsheets/d/1uQ2VkJ-Rp-zCh6x6trafNRF1hD3Tnn-Nqd45m_Y11Jg/edit?usp=sharing",
+    "output": [
+      "https://docs.google.com/spreadsheets/d/1uQ2VkJ-Rp-zCh6x6trafNRF1hD3Tnn-Nqd45m_Y11Jg/edit"
+    ]
+  },
+  {
+    "id": 25,
+    "input": "1.  https://vk.com/public212981532?w=wall-212981532_557",
+    "output": [
+      "https://vk.ru/public212981532"
+    ]
+  },
+  {
+    "id": 26,
+    "input": "https://vk.com/public217385721?w=wall-217385721_469,https://vk.com/public217385721?w=wall-217385721_470, https://vk.com/public217385721?w=wall-217385721_473 , https://vk.com/public217385721?w=wall-217385721_467",
+    "output": [
+      "https://vk.ru/public217385721",
+      "https://vk.ru/public217385721",
+      "https://vk.ru/public217385721",
+      "https://vk.ru/public217385721"
+    ]
+  },
+  {
+    "id": 27,
+    "input": "https://vk.com/httpsvk.comclub211825265?w=wall-211825265_781",
+    "output": [
+      "https://vk.ru/"
+    ]
+  },
+  {
+    "id": 28,
+    "input": "https://vk.com/wall-207148281_1145 ;  https://vk.com/wall-207148281_1147 ;   https://vk.com/wall-207148281_1151 ; https://vk.com/wall-207148281_1168 ; https://vk.com/wall-207148281_1169",
+    "output": [
+      "https://vk.ru/wall-207148281_1145",
+      "https://vk.ru/wall-207148281_1147",
+      "https://vk.ru/wall-207148281_1151",
+      "https://vk.ru/wall-207148281_1168",
+      "https://vk.ru/wall-207148281_1169"
+    ]
+  },
+  {
+    "id": 29,
+    "input": "• https://vk.com/wall-217094378_304",
+    "output": [
+      "https://vk.ru/wall-217094378_304"
+    ]
+  },
+  {
+    "id": 30,
+    "input": "t.me/nazarovoofficially /8259",
+    "output": [
+      "https://t.me/nazarovoofficially"
+    ]
+  },
+  {
+    "id": 31,
+    "input": "https://vk/com/wall-67295671_1462",
+    "output": [
+      "https://vk.ru/wall-67295671_1462"
+    ]
+  },
+  {
+    "id": 32,
+    "input": "https://m.vk.ru/wall-213816528_739",
+    "output": [
+      "https://vk.ru/wall-213816528_739"
+    ]
+  },
+  {
+    "id": 33,
+    "input": "https://m.ok.ru/profile/587443413302/statuses/156830459574326",
+    "output": [
+      "https://ok.ru/profile/587443413302/statuses/156830459574326"
+    ]
+  },
+  {
+    "id": 34,
+    "input": "https://m.ok.ru/dk?st.cmd=altGroupMediaThemeComments&st.groupId=61519743942742&st.themeId=157164019817814&st.rf=off&_prevCmd=altGroupMain&tkn=4751&_cl.id=1710567085802&_clickLog=%5B%7B%22target%22%3A%22text%22%7D%2C%7B%22target%22%3A%22content%22%7D%2C%7B%22topicId%22%3A%22157164019817814%22%2C%22groupId%22%3A%2261519743942742%22%2C%22target%22%3A%22topicCard%22%7D%2C%7B%22feedPage%22%3A%221%22%2C%22topicId%22%3A%22157164019817814%22%2C%22feedPosition%22%3A%222%22%2C%22feedFeatures%22%3A%220c01b400020202ffffff0000ffff00000000000000010100800000ffff07000201b401d0f7a4%22%2C%22feedId%22%3A%22feedId_0302000037f3ae7c00560000ad5a8a689756%22%2C%22groupId%22%3A%2261519743942742%22%7D%2C%7B%22feedLocation%22%3A%22group%22%2C%22feedFilterId%22%3A%22101%22%2C%22offerLocation%22%3A%22FEED%22%7D%5D&_cl.sID=altGroupMain",
+    "output": [
+      "https://ok.ru/dk"
+    ]
+  },
+  {
+    "id": 35,
+    "input": "https:vk.com/wail-212962227_377",
+    "output": [
+      "https://vk.ru/wail-212962227_377"
+    ]
+  },
+  {
+    "id": 36,
+    "input": "https://sh4-achinsk-r04.gosweb.gosuslugi.ru/roditelyam-i-uchenikam/novosti/novosti_1289.html",
+    "output": [
+      "https://sh4-achinsk-r04.gosweb.gosuslugi.ru/roditelyam-i-uchenikam/novosti/novosti_1289.html"
+    ]
+  },
+  {
+    "id": 37,
+    "input": "https://fast.vk.com/public213485744",
+    "output": [
+      "https://vk.ru/public213485744"
+    ]
+  },
+  {
+    "id": 38,
+    "input": "https://ds-olenenok-norilsk-r04.gosweb.gosuslugi.ru/nash-detskiy-sad/novosti-i-sobytiya/golosuem-vsey-semey.html",
+    "output": [
+      "https://ds-olenenok-norilsk-r04.gosweb.gosuslugi.ru/nash-detskiy-sad/novosti-i-sobytiya/golosuem-vsey-semey.html"
+    ]
+  },
+  {
+    "id": 39,
+    "input": "https://vk.com/wall-212762540_1155",
+    "output": [
+      "https://vk.ru/wall-212762540_1155"
+    ]
+  },
+  {
+    "id": 40,
+    "input": "https://vk.com/public217438341?w=wall-217438341_203",
+    "output": [
+      "https://vk.ru/public217438341"
+    ]
+  },
+  {
+    "id": 41,
+    "input": "https://vk.com/wall-217644230_33",
+    "output": [
+      "https://vk.ru/wall-217644230_33"
+    ]
+  },
+  {
+    "id": 42,
+    "input": "https://vk.com/public172596821?w=wall-172596821_5701",
+    "output": [
+      "https://vk.ru/public172596821"
+    ]
+  }
+]
