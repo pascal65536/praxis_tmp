@@ -42,6 +42,7 @@
 36. [Работа с датой и временем (datetime)](theory/360.md)
 37. [Регулярные выражения (re)](theory/370.md)
 60. [Zen Python](theory/600.md)
+69. [Создание проекта на Git](theory/690.md)
 70. [REST API](theory/700.md)
 90. [HTML](theory/900.md)
 
