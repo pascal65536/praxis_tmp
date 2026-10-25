@@ -50,6 +50,7 @@
 74. [Передача файлов на сервер с помощью Flask](theory/740.md)
 75. [UUID в Python](theory/750.md)
 76. [Message-Digest Algorithm 5](theory/760.md)
+77. [Статические файлы во Flask](theory/770.md)
 90. [HTML](theory/900.md)
 
 
