@@ -1,6 +1,9 @@
 remote_theme: pages-themes/midnight
 heading_anchors: true
 permalink: pretty
+layout: default
+nav_enabled: true
+search_enabled: true
 
 plugins:
   - jekyll-remote-theme
@@ -10,6 +13,3 @@ exclude:
   - tasks/
 
 lang: ru
-
-nav_enabled: true
-search_enabled: true
