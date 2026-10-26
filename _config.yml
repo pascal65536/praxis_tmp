@@ -4,9 +4,5 @@ plugins:
   - jekyll-remote-theme
   - jekyll-readme-index
 
-readme_index:
-  enabled: true
-  with_frontmatter: true
-
 exclude:
   - tasks/
