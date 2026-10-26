@@ -1,7 +1,16 @@
+remote_theme: just-the-docs/just-the-docs
+
 plugins:
   - jekyll-remote-theme
+  - jekyll-include-cache
+  - jekyll-relative-links
+
+search_enabled: true
+
+relative_links:
+  enabled: true
+  collections: false
 
 exclude:
   - tasks/
 
-remote_theme: pages-themes/cayman@v0.2.0
