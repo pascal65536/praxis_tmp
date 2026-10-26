@@ -1,0 +1,272 @@
+[
+  {
+    "id": "base-empty",
+    "kind": "base",
+    "input": "",
+    "output": {
+      "total_lines": 0,
+      "valid_lines": 0,
+      "invalid_lines": 0,
+      "unique_workers": 0,
+      "requests": 0,
+      "cached": 0,
+      "unique_users": 0,
+      "top_users": [],
+      "commands": {
+        "start": 0,
+        "stop": 0
+      },
+      "tasks": {}
+    }
+  },
+  {
+    "id": "base-sample-inline",
+    "kind": "base",
+    "input": "2026-10-18 12:00:00,000;vkkbot_100;INFO;🚀 Бот запущен. PID=100\n2026-10-18 12:00:00,500;vkkbot_100;INFO;REQUEST;101;8б\n2026-10-18 12:00:01,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:01,050;vkkbot_100;INFO;REQUEST;202;6б\n2026-10-18 12:00:01,100;vkkbot_100;INFO;🔄 Задача search для 202\n2026-10-18 12:00:02,000;vkkbot_100;INFO;✅ Задача search выполнена для 101\n2026-10-18 12:00:02,100;vkkbot_100;INFO;CACHED;101;8б\n2026-10-18 12:00:02,600;vkkbot_100;INFO;✅ Задача search выполнена для 202\n2026-10-18 12:00:03,000;vkkbot_100;INFO;REQUEST;101;5В\n2026-10-18 12:00:03,100;vkkbot_100;INFO;REQUEST;202;10 Т\n2026-10-18 12:00:03,200;vkkbot_200;INFO;REQUEST;303;8б\n2026-10-18 12:00:03,300;vkkbot_200;INFO;CACHED;303;8б\n2026-10-18 12:00:03,400;vkkbot_100;INFO;REQUEST;101;▶️ Запуск бота\n2026-10-18 12:00:03,500;vkkbot_100;INFO;REQUEST;202;⏹️ Остановка бота\n2026-10-18 12:00:04,000;vkkbot_200;INFO;🔄 Задача bell_status для 303\n2026-10-18 12:00:04,500;vkkbot_200;INFO;✅ Задача bell_status выполнена для 303\nTraceback (most recent call last):\nnot-a-date;vkkbot_100;INFO;REQUEST;404;8б\n\n2026-10-18 12:00:05,000;vkkbot_100;INFO;REQUEST;101;6б\n2026-10-18 12:00:05,100;vkkbot_100;INFO;REQUEST;202;8б\n2026-10-18 12:00:05,200;vkkbot_200;INFO;🛑 Все воркеры остановлены\n2026-10-18 12:00:06,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:06,100;vkkbot_200;INFO;REQUEST;303;10т\n2026-10-18 12:00:06,200;vkkbot_100;INFO;REQUEST;101;🔔 Скоро звонок?\n2026-10-18 12:00:07,000;vkkbot_100;INFO;🔄 Задача bell_status для 101\n2026-10-18 12:00:07,250;vkkbot_100;INFO;✅ Задача bell_status выполнена для 101\n2026-10-18 12:00:08,000;vkkbot_200;INFO;REQUEST;204;8б\n2026-10-18 12:00:08,100;vkkbot_200;INFO;REQUEST;204;10т\n",
+    "output": {
+      "total_lines": 29,
+      "valid_lines": 26,
+      "invalid_lines": 3,
+      "unique_workers": 2,
+      "requests": 13,
+      "cached": 2,
+      "unique_users": 4,
+      "top_users": [
+        {
+          "user_id": "101",
+          "count": 5
+        },
+        {
+          "user_id": "202",
+          "count": 4
+        },
+        {
+          "user_id": "204",
+          "count": 2
+        },
+        {
+          "user_id": "303",
+          "count": 2
+        }
+      ],
+      "commands": {
+        "start": 1,
+        "stop": 1
+      },
+      "tasks": {
+        "bell_status": 2,
+        "search": 3
+      }
+    }
+  },
+  {
+    "id": "base-crlf-and-bom",
+    "kind": "base",
+    "input": "﻿2026-10-18 12:00:00,000;vkkbot_1;INFO;REQUEST;2;▶️ Запуск бота\r\n\r\n2026-10-18 12:00:00,100;vkkbot_1;INFO;CACHED;2;8б\r\n2026-10-18 12:00:00,200;vkkbot_1;INFO;📡 LongPoll запущен\r\n",
+    "output": {
+      "total_lines": 4,
+      "valid_lines": 3,
+      "invalid_lines": 1,
+      "unique_workers": 1,
+      "requests": 1,
+      "cached": 1,
+      "unique_users": 1,
+      "top_users": [
+        {
+          "user_id": "2",
+          "count": 1
+        }
+      ],
+      "commands": {
+        "start": 1,
+        "stop": 0
+      },
+      "tasks": {}
+    }
+  },
+  {
+    "id": "base-invalid-records",
+    "kind": "base",
+    "input": "Traceback (most recent call last):\nbad-date;vkkbot_1;INFO;REQUEST;1;8б\n2026-10-18 12:00:00,000;worker;INFO;REQUEST;1;8б\n2026-10-18 12:00:00,000;vkkbot_1;DEBUG;REQUEST;1;8б\n2026-10-18 12:00:00,000;vkkbot_1;INFO;\n2026-10-18 12:00:00,000;vkkbot_1;INFO;REQUEST;abc;8б\n2026-10-18 12:00:00,000;vkkbot_1;INFO;REQUEST;1;8б",
+    "output": {
+      "total_lines": 7,
+      "valid_lines": 1,
+      "invalid_lines": 6,
+      "unique_workers": 1,
+      "requests": 1,
+      "cached": 0,
+      "unique_users": 1,
+      "top_users": [
+        {
+          "user_id": "1",
+          "count": 1
+        }
+      ],
+      "commands": {
+        "start": 0,
+        "stop": 0
+      },
+      "tasks": {}
+    }
+  },
+  {
+    "id": "base-top-users-sorting",
+    "kind": "base",
+    "input": "2026-10-18 12:00:00,000;vkkbot_1;INFO;REQUEST;1;8б\n2026-10-18 12:00:01,000;vkkbot_1;INFO;REQUEST;1;8б\n2026-10-18 12:01:00,000;vkkbot_1;INFO;REQUEST;2;8б\n2026-10-18 12:01:01,000;vkkbot_1;INFO;REQUEST;2;8б\n2026-10-18 12:02:00,000;vkkbot_1;INFO;REQUEST;3;8б\n2026-10-18 12:03:00,000;vkkbot_1;INFO;REQUEST;4;8б\n2026-10-18 12:04:00,000;vkkbot_1;INFO;REQUEST;5;8б\n2026-10-18 12:05:00,000;vkkbot_1;INFO;REQUEST;6;8б\n2026-10-18 12:06:00,000;vkkbot_1;INFO;REQUEST;7;8б\n2026-10-18 12:07:00,000;vkkbot_1;INFO;REQUEST;8;8б\n2026-10-18 12:08:00,000;vkkbot_1;INFO;REQUEST;9;8б\n2026-10-18 12:09:00,000;vkkbot_1;INFO;REQUEST;10;8б\n2026-10-18 12:10:00,000;vkkbot_1;INFO;REQUEST;11;8б\n2026-10-18 12:11:00,000;vkkbot_1;INFO;REQUEST;12;8б",
+    "output": {
+      "total_lines": 14,
+      "valid_lines": 14,
+      "invalid_lines": 0,
+      "unique_workers": 1,
+      "requests": 14,
+      "cached": 0,
+      "unique_users": 12,
+      "top_users": [
+        {
+          "user_id": "1",
+          "count": 2
+        },
+        {
+          "user_id": "2",
+          "count": 2
+        },
+        {
+          "user_id": "10",
+          "count": 1
+        },
+        {
+          "user_id": "11",
+          "count": 1
+        },
+        {
+          "user_id": "12",
+          "count": 1
+        },
+        {
+          "user_id": "3",
+          "count": 1
+        },
+        {
+          "user_id": "4",
+          "count": 1
+        },
+        {
+          "user_id": "5",
+          "count": 1
+        },
+        {
+          "user_id": "6",
+          "count": 1
+        },
+        {
+          "user_id": "7",
+          "count": 1
+        }
+      ],
+      "commands": {
+        "start": 0,
+        "stop": 0
+      },
+      "tasks": {}
+    }
+  },
+  {
+    "id": "base-event-filters",
+    "kind": "base",
+    "input": "2026-10-18 12:00:00,000;vkkbot_1;INFO;REQUEST;1;▶️ Запуск бота\n2026-10-18 12:00:00,100;vkkbot_1;INFO;CACHED;1;▶️ Запуск бота\n2026-10-18 12:00:00,200;vkkbot_1;INFO;REQUEST;1;⏹️ Остановка бота\n2026-10-18 12:00:00,300;vkkbot_1;INFO;🔄 Задача search для 1\n2026-10-18 12:00:00,400;vkkbot_1;INFO;✅ Задача search выполнена для 1\n2026-10-18 12:00:00,500;vkkbot_1;INFO;🔄 Задача search для abc",
+    "output": {
+      "total_lines": 6,
+      "valid_lines": 6,
+      "invalid_lines": 0,
+      "unique_workers": 1,
+      "requests": 2,
+      "cached": 1,
+      "unique_users": 1,
+      "top_users": [
+        {
+          "user_id": "1",
+          "count": 2
+        }
+      ],
+      "commands": {
+        "start": 1,
+        "stop": 1
+      },
+      "tasks": {
+        "search": 1
+      }
+    }
+  },
+  {
+    "id": "duration-sample",
+    "kind": "durations",
+    "input": "2026-10-18 12:00:00,000;vkkbot_100;INFO;🚀 Бот запущен. PID=100\n2026-10-18 12:00:00,500;vkkbot_100;INFO;REQUEST;101;8б\n2026-10-18 12:00:01,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:01,050;vkkbot_100;INFO;REQUEST;202;6б\n2026-10-18 12:00:01,100;vkkbot_100;INFO;🔄 Задача search для 202\n2026-10-18 12:00:02,000;vkkbot_100;INFO;✅ Задача search выполнена для 101\n2026-10-18 12:00:02,100;vkkbot_100;INFO;CACHED;101;8б\n2026-10-18 12:00:02,600;vkkbot_100;INFO;✅ Задача search выполнена для 202\n2026-10-18 12:00:03,000;vkkbot_100;INFO;REQUEST;101;5В\n2026-10-18 12:00:03,100;vkkbot_100;INFO;REQUEST;202;10 Т\n2026-10-18 12:00:03,200;vkkbot_200;INFO;REQUEST;303;8б\n2026-10-18 12:00:03,300;vkkbot_200;INFO;CACHED;303;8б\n2026-10-18 12:00:03,400;vkkbot_100;INFO;REQUEST;101;▶️ Запуск бота\n2026-10-18 12:00:03,500;vkkbot_100;INFO;REQUEST;202;⏹️ Остановка бота\n2026-10-18 12:00:04,000;vkkbot_200;INFO;🔄 Задача bell_status для 303\n2026-10-18 12:00:04,500;vkkbot_200;INFO;✅ Задача bell_status выполнена для 303\nTraceback (most recent call last):\nnot-a-date;vkkbot_100;INFO;REQUEST;404;8б\n\n2026-10-18 12:00:05,000;vkkbot_100;INFO;REQUEST;101;6б\n2026-10-18 12:00:05,100;vkkbot_100;INFO;REQUEST;202;8б\n2026-10-18 12:00:05,200;vkkbot_200;INFO;🛑 Все воркеры остановлены\n2026-10-18 12:00:06,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:06,100;vkkbot_200;INFO;REQUEST;303;10т\n2026-10-18 12:00:06,200;vkkbot_100;INFO;REQUEST;101;🔔 Скоро звонок?\n2026-10-18 12:00:07,000;vkkbot_100;INFO;🔄 Задача bell_status для 101\n2026-10-18 12:00:07,250;vkkbot_100;INFO;✅ Задача bell_status выполнена для 101\n2026-10-18 12:00:08,000;vkkbot_200;INFO;REQUEST;204;8б\n2026-10-18 12:00:08,100;vkkbot_200;INFO;REQUEST;204;10т\n",
+    "output": {
+      "bell_status": {
+        "completed": 2,
+        "average_seconds": 0.375
+      },
+      "search": {
+        "completed": 2,
+        "average_seconds": 1.25
+      }
+    }
+  },
+  {
+    "id": "duration-overlap-fifo",
+    "kind": "durations",
+    "input": "2026-10-18 12:00:00,000;vkkbot_1;INFO;🔄 Задача search для 1\n2026-10-18 12:00:02,000;vkkbot_1;INFO;🔄 Задача search для 1\n2026-10-18 12:00:05,000;vkkbot_1;INFO;✅ Задача search выполнена для 1\n2026-10-18 12:00:07,000;vkkbot_1;INFO;✅ Задача search выполнена для 1\n2026-10-18 12:00:08,000;vkkbot_1;INFO;✅ Задача bell выполнена для 2\n2026-10-18 12:00:09,000;vkkbot_1;INFO;🔄 Задача bell для 2",
+    "output": {
+      "search": {
+        "completed": 2,
+        "average_seconds": 5.0
+      }
+    }
+  },
+  {
+    "id": "duration-no-completed",
+    "kind": "durations",
+    "input": "2026-10-18 12:00:09,000;vkkbot_1;INFO;🔄 Задача bell для 2",
+    "output": {}
+  },
+  {
+    "id": "classes-normalization-limit",
+    "kind": "classes",
+    "input": "2026-10-18 12:00:00,000;vkkbot_1;INFO;REQUEST;1;10 Т\n2026-10-18 12:00:00,100;vkkbot_1;INFO;REQUEST;1;8б\n2026-10-18 12:00:00,200;vkkbot_1;INFO;REQUEST;2;10т\n2026-10-18 12:00:00,300;vkkbot_1;INFO;REQUEST;2;8Б\n2026-10-18 12:00:00,400;vkkbot_1;INFO;REQUEST;3; 5 В \n2026-10-18 12:00:00,500;vkkbot_1;INFO;REQUEST;3;Учитель\n2026-10-18 12:00:00,600;vkkbot_1;INFO;CACHED;3;9а",
+    "limit": 2,
+    "output": [
+      {
+        "class": "10т",
+        "count": 2
+      },
+      {
+        "class": "8б",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": "classes-sample",
+    "kind": "classes",
+    "input": "2026-10-18 12:00:00,000;vkkbot_100;INFO;🚀 Бот запущен. PID=100\n2026-10-18 12:00:00,500;vkkbot_100;INFO;REQUEST;101;8б\n2026-10-18 12:00:01,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:01,050;vkkbot_100;INFO;REQUEST;202;6б\n2026-10-18 12:00:01,100;vkkbot_100;INFO;🔄 Задача search для 202\n2026-10-18 12:00:02,000;vkkbot_100;INFO;✅ Задача search выполнена для 101\n2026-10-18 12:00:02,100;vkkbot_100;INFO;CACHED;101;8б\n2026-10-18 12:00:02,600;vkkbot_100;INFO;✅ Задача search выполнена для 202\n2026-10-18 12:00:03,000;vkkbot_100;INFO;REQUEST;101;5В\n2026-10-18 12:00:03,100;vkkbot_100;INFO;REQUEST;202;10 Т\n2026-10-18 12:00:03,200;vkkbot_200;INFO;REQUEST;303;8б\n2026-10-18 12:00:03,300;vkkbot_200;INFO;CACHED;303;8б\n2026-10-18 12:00:03,400;vkkbot_100;INFO;REQUEST;101;▶️ Запуск бота\n2026-10-18 12:00:03,500;vkkbot_100;INFO;REQUEST;202;⏹️ Остановка бота\n2026-10-18 12:00:04,000;vkkbot_200;INFO;🔄 Задача bell_status для 303\n2026-10-18 12:00:04,500;vkkbot_200;INFO;✅ Задача bell_status выполнена для 303\nTraceback (most recent call last):\nnot-a-date;vkkbot_100;INFO;REQUEST;404;8б\n\n2026-10-18 12:00:05,000;vkkbot_100;INFO;REQUEST;101;6б\n2026-10-18 12:00:05,100;vkkbot_100;INFO;REQUEST;202;8б\n2026-10-18 12:00:05,200;vkkbot_200;INFO;🛑 Все воркеры остановлены\n2026-10-18 12:00:06,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:06,100;vkkbot_200;INFO;REQUEST;303;10т\n2026-10-18 12:00:06,200;vkkbot_100;INFO;REQUEST;101;🔔 Скоро звонок?\n2026-10-18 12:00:07,000;vkkbot_100;INFO;🔄 Задача bell_status для 101\n2026-10-18 12:00:07,250;vkkbot_100;INFO;✅ Задача bell_status выполнена для 101\n2026-10-18 12:00:08,000;vkkbot_200;INFO;REQUEST;204;8б\n2026-10-18 12:00:08,100;vkkbot_200;INFO;REQUEST;204;10т\n",
+    "limit": 10,
+    "output": [
+      {
+        "class": "8б",
+        "count": 4
+      },
+      {
+        "class": "10т",
+        "count": 3
+      },
+      {
+        "class": "6б",
+        "count": 2
+      },
+      {
+        "class": "5в",
+        "count": 1
+      }
+    ]
+  }
+]
