@@ -1,4 +1,5 @@
-theme: jekyll-theme-primer
+plugins:
+  - jekyll-remote-theme
 
 exclude:
   - tasks/
