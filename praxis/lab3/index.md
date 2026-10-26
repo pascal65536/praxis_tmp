@@ -284,3 +284,5 @@ python check.py --advanced
 ```
 
 Проверка использует только стандартную библиотеку Python. Подробная инструкция для Windows находится в `README.md`.
+
+[Скачать стенд для этой работы](https://github.com/pascal65536/praxis_tmp/tree/main/praxis/lab3)
