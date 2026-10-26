@@ -1,0 +1,35 @@
+{
+  "total_lines": 29,
+  "valid_lines": 26,
+  "invalid_lines": 3,
+  "unique_workers": 2,
+  "requests": 13,
+  "cached": 2,
+  "unique_users": 4,
+  "top_users": [
+    {
+      "user_id": "101",
+      "count": 5
+    },
+    {
+      "user_id": "202",
+      "count": 4
+    },
+    {
+      "user_id": "204",
+      "count": 2
+    },
+    {
+      "user_id": "303",
+      "count": 2
+    }
+  ],
+  "commands": {
+    "start": 1,
+    "stop": 1
+  },
+  "tasks": {
+    "bell_status": 2,
+    "search": 3
+  }
+}

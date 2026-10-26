@@ -22,31 +22,55 @@
   {
     "id": "base-sample-inline",
     "kind": "base",
-    "input": "2026-10-18 12:00:00,000;vkkbot_100;INFO;🚀 Бот запущен. PID=100\n2026-10-18 12:00:00,500;vkkbot_100;INFO;REQUEST;101;8б\n2026-10-18 12:00:01,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:01,050;vkkbot_100;INFO;REQUEST;202;6б\n2026-10-18 12:00:01,100;vkkbot_100;INFO;🔄 Задача search для 202\n2026-10-18 12:00:02,000;vkkbot_100;INFO;✅ Задача search выполнена для 101\n2026-10-18 12:00:02,100;vkkbot_100;INFO;CACHED;101;8б\n2026-10-18 12:00:02,600;vkkbot_100;INFO;✅ Задача search выполнена для 202\n2026-10-18 12:00:03,000;vkkbot_100;INFO;REQUEST;101;5В\n2026-10-18 12:00:03,100;vkkbot_100;INFO;REQUEST;202;10 Т\n2026-10-18 12:00:03,200;vkkbot_200;INFO;REQUEST;303;8б\n2026-10-18 12:00:03,300;vkkbot_200;INFO;CACHED;303;8б\n2026-10-18 12:00:03,400;vkkbot_100;INFO;REQUEST;101;▶️ Запуск бота\n2026-10-18 12:00:03,500;vkkbot_100;INFO;REQUEST;202;⏹️ Остановка бота\n2026-10-18 12:00:04,000;vkkbot_200;INFO;🔄 Задача bell_status для 303\n2026-10-18 12:00:04,500;vkkbot_200;INFO;✅ Задача bell_status выполнена для 303\nTraceback (most recent call last):\nnot-a-date;vkkbot_100;INFO;REQUEST;404;8б\n\n2026-10-18 12:00:05,000;vkkbot_100;INFO;REQUEST;101;6б\n2026-10-18 12:00:05,100;vkkbot_100;INFO;REQUEST;202;8б\n2026-10-18 12:00:05,200;vkkbot_200;INFO;🛑 Все воркеры остановлены\n2026-10-18 12:00:06,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:06,100;vkkbot_200;INFO;REQUEST;303;10т\n2026-10-18 12:00:06,200;vkkbot_100;INFO;REQUEST;101;🔔 Скоро звонок?\n2026-10-18 12:00:07,000;vkkbot_100;INFO;🔄 Задача bell_status для 101\n2026-10-18 12:00:07,250;vkkbot_100;INFO;✅ Задача bell_status выполнена для 101\n2026-10-18 12:00:08,000;vkkbot_200;INFO;REQUEST;204;8б\n2026-10-18 12:00:08,100;vkkbot_200;INFO;REQUEST;204;10т\n",
+    "input": "2026-10-18 12:00:00,000;vkkbot_100;INFO;🚀 Бот запущен. PID=100\n2026-10-18 12:00:01,000;vkkbot_100;INFO;🔄 Тяжелый воркер 0 запущен\n2026-10-18 12:00:02,000;vkkbot_100;INFO;🔄 Тяжелый воркер 1 запущен\n2026-10-18 12:00:03,000;vkkbot_100;INFO;🚀 Запущено 2 тяжелых воркеров\n2026-10-18 12:00:04,000;vkkbot_200;INFO;🚀 Запущено 2 heavy + 4 incoming воркеров\n2026-10-18 12:00:05,000;vkkbot_100;INFO;📡 LongPoll запущен\n2026-10-18 12:00:06,000;vkkbot_200;INFO;🌐 Запуск в режиме вебхука (dev)\n2026-10-18 12:00:07,000;vkkbot_200;INFO;🌐 Запуск в режиме вебхука\n2026-10-18 12:00:08,000;vkkbot_200;INFO;🩺 Health-сервер на 0.0.0.0:8000\n2026-10-18 12:00:09,000;vkkbot_100;INFO;REQUEST;101;8б\n2026-10-18 12:00:10,000;vkkbot_100;INFO;REQUEST;202;10 Т\n2026-10-18 12:00:11,000;vkkbot_100;INFO;REQUEST;303;5В\n2026-10-18 12:00:12,000;vkkbot_100;INFO;REQUEST;404;05 в\n2026-10-18 12:00:13,000;vkkbot_100;INFO;REQUEST;505;10т\n2026-10-18 12:00:14,000;vkkbot_100;INFO;REQUEST;101;8Б\n2026-10-18 12:00:15,000;vkkbot_100;INFO;REQUEST;202;6б\n2026-10-18 12:00:16,000;vkkbot_100;INFO;REQUEST;101;▶️ Запуск бота\n2026-10-18 12:00:17,000;vkkbot_100;INFO;REQUEST;202;⏹️ Остановка бота\n2026-10-18 12:00:18,000;vkkbot_100;INFO;REQUEST;303;🔔 Скоро звонок?\n2026-10-18 12:00:19,000;vkkbot_200;INFO;REQUEST;404;12345\n2026-10-18 12:00:20,000;vkkbot_200;INFO;REQUEST;505;Иванов\n2026-10-18 12:00:21,000;vkkbot_200;INFO;REQUEST;606;Иванов Иван\n2026-10-18 12:00:22,000;vkkbot_200;INFO;REQUEST;707;student\n2026-10-18 12:00:23,000;vkkbot_200;INFO;REQUEST;808;teacher\n2026-10-18 12:00:24,000;vkkbot_200;INFO;REQUEST;909;иванов\n2026-10-18 12:00:25,000;vkkbot_200;INFO;REQUEST;111;На этой неделе \n2026-10-18 12:00:26,000;vkkbot_100;INFO;CACHED;101;8б\n2026-10-18 12:00:27,000;vkkbot_200;INFO;CACHED;505;Иванов\n2026-10-18 12:00:28,000;vkkbot_200;INFO;RESPONCE;101;Бот молчит\n2026-10-18 12:00:29,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:30,000;vkkbot_100;INFO;✅ Задача search выполнена для 101\n2026-10-18 12:00:31,000;vkkbot_100;INFO;🔄 Задача bell_status для 202\n2026-10-18 12:00:32,000;vkkbot_100;INFO;✅ Задача bell_status выполнена для 202\n2026-10-18 12:00:33,000;vkkbot_200;INFO;🔄 Задача student для 303\n2026-10-18 12:00:34,000;vkkbot_200;INFO;✅ Задача student выполнена для 303\n2026-10-18 12:00:35,000;vkkbot_200;INFO;🔄 Задача teacher для 404\n2026-10-18 12:00:36,000;vkkbot_200;INFO;✅ Задача teacher выполнена для 404\n2026-10-18 12:00:37,000;vkkbot_100;INFO;🔄 Задача bell для 505\n2026-10-18 12:00:38,000;vkkbot_100;INFO;✅ Задача bell выполнена для 505\n2026-10-18 12:00:39,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:40,000;vkkbot_100;INFO;🔄 Тяжелый воркер 0 остановлен\n2026-10-18 12:00:41,000;vkkbot_100;INFO;🔄 Тяжелый воркер 1 остановлен\n2026-10-18 12:00:42,000;vkkbot_100;INFO;🛑 Все воркеры остановлены\n2026-10-18 12:00:43,000;vkkbot_200;INFO;Остановка\n2026-10-18 12:00:44,000;vkkbot_200;INFO;Остановка по Ctrl+C\n2026-10-18 12:00:45,000;vkkbot_100;ERROR;The groups have written. Return\n2026-10-18 12:00:46,000;vkkbot_100;ERROR;get_user_info error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\n2026-10-18 12:00:47,000;vkkbot_200;ERROR;send_message fail 101: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\n2026-10-18 12:00:48,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 1s\n2026-10-18 12:00:49,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 2s\n2026-10-18 12:00:50,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 4s\n2026-10-18 12:00:51,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 8s\n2026-10-18 12:00:52,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 16s\nTraceback (most recent call last):\n  File \"bot.py\", line 793, in urlopen\n    response = self._make_request(\n  File \"bot.py\", line 540, in _make_request\n    response = conn.getresponse()\n  File \"bot.py\", line 638, in getresponse\n    httplib_response = super().getresponse()\n  File \"bot.py\", line 1404, in getresponse\n    response.begin()\n  File \"bot.py\", line 323, in begin\n    version, status, reason = self._read_status()\n  File \"bot.py\", line 292, in _read_status\n    raise RemoteDisconnected(\"Remote end closed connection without\"\nhttp.client.RemoteDisconnected: Remote end closed connection without response\n\nDuring handling of the above exception, another exception occurred:\n  File \"bot.py\", line 696, in send\n    resp = conn.urlopen(\n  File \"bot.py\", line 847, in urlopen\n    retries = retries.increment(\n  File \"bot.py\", line 510, in increment\n    raise reraise(type(error), error, _stacktrace)\n  File \"bot.py\", line 38, in reraise\n    raise value.with_traceback(tb)\nurllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\n  File \"bot.py\", line 158, in get_user_info\n    user_lst = vk.users.get(user_ids=user_id, fields=fields)\n  File \"bot.py\", line 1055, in __call__\n    return self._vk.method(self._method, kwargs)\n  File \"bot.py\", line 903, in method\n    response = self.http.post(\n  File \"bot.py\", line 712, in post\n    return self.request(\"POST\", url, data=data, json=json, **kwargs)\n  File \"bot.py\", line 651, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"bot.py\", line 784, in send\n    r = adapter.send(request, **kwargs)\n  File \"bot.py\", line 711, in send\n    raise ConnectionError(err, request=request)\nrequests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\nНа этой неделе \n  File \"bot.py\", line 219, in send_message\n    vk.messages.send(\n11\nПредлагаем ваше\nПриглашаю вас пр\n",
     "output": {
-      "total_lines": 29,
-      "valid_lines": 26,
-      "invalid_lines": 3,
+      "total_lines": 99,
+      "valid_lines": 53,
+      "invalid_lines": 46,
       "unique_workers": 2,
-      "requests": 13,
+      "requests": 17,
       "cached": 2,
-      "unique_users": 4,
+      "unique_users": 10,
       "top_users": [
         {
           "user_id": "101",
-          "count": 5
+          "count": 3
         },
         {
           "user_id": "202",
-          "count": 4
-        },
-        {
-          "user_id": "204",
-          "count": 2
+          "count": 3
         },
         {
           "user_id": "303",
           "count": 2
+        },
+        {
+          "user_id": "404",
+          "count": 2
+        },
+        {
+          "user_id": "505",
+          "count": 2
+        },
+        {
+          "user_id": "111",
+          "count": 1
+        },
+        {
+          "user_id": "606",
+          "count": 1
+        },
+        {
+          "user_id": "707",
+          "count": 1
+        },
+        {
+          "user_id": "808",
+          "count": 1
+        },
+        {
+          "user_id": "909",
+          "count": 1
         }
       ],
       "commands": {
@@ -54,8 +78,11 @@
         "stop": 1
       },
       "tasks": {
-        "bell_status": 2,
-        "search": 3
+        "bell": 1,
+        "bell_status": 1,
+        "search": 2,
+        "student": 1,
+        "teacher": 1
       }
     }
   },
@@ -200,15 +227,27 @@
   {
     "id": "duration-sample",
     "kind": "durations",
-    "input": "2026-10-18 12:00:00,000;vkkbot_100;INFO;🚀 Бот запущен. PID=100\n2026-10-18 12:00:00,500;vkkbot_100;INFO;REQUEST;101;8б\n2026-10-18 12:00:01,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:01,050;vkkbot_100;INFO;REQUEST;202;6б\n2026-10-18 12:00:01,100;vkkbot_100;INFO;🔄 Задача search для 202\n2026-10-18 12:00:02,000;vkkbot_100;INFO;✅ Задача search выполнена для 101\n2026-10-18 12:00:02,100;vkkbot_100;INFO;CACHED;101;8б\n2026-10-18 12:00:02,600;vkkbot_100;INFO;✅ Задача search выполнена для 202\n2026-10-18 12:00:03,000;vkkbot_100;INFO;REQUEST;101;5В\n2026-10-18 12:00:03,100;vkkbot_100;INFO;REQUEST;202;10 Т\n2026-10-18 12:00:03,200;vkkbot_200;INFO;REQUEST;303;8б\n2026-10-18 12:00:03,300;vkkbot_200;INFO;CACHED;303;8б\n2026-10-18 12:00:03,400;vkkbot_100;INFO;REQUEST;101;▶️ Запуск бота\n2026-10-18 12:00:03,500;vkkbot_100;INFO;REQUEST;202;⏹️ Остановка бота\n2026-10-18 12:00:04,000;vkkbot_200;INFO;🔄 Задача bell_status для 303\n2026-10-18 12:00:04,500;vkkbot_200;INFO;✅ Задача bell_status выполнена для 303\nTraceback (most recent call last):\nnot-a-date;vkkbot_100;INFO;REQUEST;404;8б\n\n2026-10-18 12:00:05,000;vkkbot_100;INFO;REQUEST;101;6б\n2026-10-18 12:00:05,100;vkkbot_100;INFO;REQUEST;202;8б\n2026-10-18 12:00:05,200;vkkbot_200;INFO;🛑 Все воркеры остановлены\n2026-10-18 12:00:06,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:06,100;vkkbot_200;INFO;REQUEST;303;10т\n2026-10-18 12:00:06,200;vkkbot_100;INFO;REQUEST;101;🔔 Скоро звонок?\n2026-10-18 12:00:07,000;vkkbot_100;INFO;🔄 Задача bell_status для 101\n2026-10-18 12:00:07,250;vkkbot_100;INFO;✅ Задача bell_status выполнена для 101\n2026-10-18 12:00:08,000;vkkbot_200;INFO;REQUEST;204;8б\n2026-10-18 12:00:08,100;vkkbot_200;INFO;REQUEST;204;10т\n",
+    "input": "2026-10-18 12:00:00,000;vkkbot_100;INFO;🚀 Бот запущен. PID=100\n2026-10-18 12:00:01,000;vkkbot_100;INFO;🔄 Тяжелый воркер 0 запущен\n2026-10-18 12:00:02,000;vkkbot_100;INFO;🔄 Тяжелый воркер 1 запущен\n2026-10-18 12:00:03,000;vkkbot_100;INFO;🚀 Запущено 2 тяжелых воркеров\n2026-10-18 12:00:04,000;vkkbot_200;INFO;🚀 Запущено 2 heavy + 4 incoming воркеров\n2026-10-18 12:00:05,000;vkkbot_100;INFO;📡 LongPoll запущен\n2026-10-18 12:00:06,000;vkkbot_200;INFO;🌐 Запуск в режиме вебхука (dev)\n2026-10-18 12:00:07,000;vkkbot_200;INFO;🌐 Запуск в режиме вебхука\n2026-10-18 12:00:08,000;vkkbot_200;INFO;🩺 Health-сервер на 0.0.0.0:8000\n2026-10-18 12:00:09,000;vkkbot_100;INFO;REQUEST;101;8б\n2026-10-18 12:00:10,000;vkkbot_100;INFO;REQUEST;202;10 Т\n2026-10-18 12:00:11,000;vkkbot_100;INFO;REQUEST;303;5В\n2026-10-18 12:00:12,000;vkkbot_100;INFO;REQUEST;404;05 в\n2026-10-18 12:00:13,000;vkkbot_100;INFO;REQUEST;505;10т\n2026-10-18 12:00:14,000;vkkbot_100;INFO;REQUEST;101;8Б\n2026-10-18 12:00:15,000;vkkbot_100;INFO;REQUEST;202;6б\n2026-10-18 12:00:16,000;vkkbot_100;INFO;REQUEST;101;▶️ Запуск бота\n2026-10-18 12:00:17,000;vkkbot_100;INFO;REQUEST;202;⏹️ Остановка бота\n2026-10-18 12:00:18,000;vkkbot_100;INFO;REQUEST;303;🔔 Скоро звонок?\n2026-10-18 12:00:19,000;vkkbot_200;INFO;REQUEST;404;12345\n2026-10-18 12:00:20,000;vkkbot_200;INFO;REQUEST;505;Иванов\n2026-10-18 12:00:21,000;vkkbot_200;INFO;REQUEST;606;Иванов Иван\n2026-10-18 12:00:22,000;vkkbot_200;INFO;REQUEST;707;student\n2026-10-18 12:00:23,000;vkkbot_200;INFO;REQUEST;808;teacher\n2026-10-18 12:00:24,000;vkkbot_200;INFO;REQUEST;909;иванов\n2026-10-18 12:00:25,000;vkkbot_200;INFO;REQUEST;111;На этой неделе \n2026-10-18 12:00:26,000;vkkbot_100;INFO;CACHED;101;8б\n2026-10-18 12:00:27,000;vkkbot_200;INFO;CACHED;505;Иванов\n2026-10-18 12:00:28,000;vkkbot_200;INFO;RESPONCE;101;Бот молчит\n2026-10-18 12:00:29,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:30,000;vkkbot_100;INFO;✅ Задача search выполнена для 101\n2026-10-18 12:00:31,000;vkkbot_100;INFO;🔄 Задача bell_status для 202\n2026-10-18 12:00:32,000;vkkbot_100;INFO;✅ Задача bell_status выполнена для 202\n2026-10-18 12:00:33,000;vkkbot_200;INFO;🔄 Задача student для 303\n2026-10-18 12:00:34,000;vkkbot_200;INFO;✅ Задача student выполнена для 303\n2026-10-18 12:00:35,000;vkkbot_200;INFO;🔄 Задача teacher для 404\n2026-10-18 12:00:36,000;vkkbot_200;INFO;✅ Задача teacher выполнена для 404\n2026-10-18 12:00:37,000;vkkbot_100;INFO;🔄 Задача bell для 505\n2026-10-18 12:00:38,000;vkkbot_100;INFO;✅ Задача bell выполнена для 505\n2026-10-18 12:00:39,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:40,000;vkkbot_100;INFO;🔄 Тяжелый воркер 0 остановлен\n2026-10-18 12:00:41,000;vkkbot_100;INFO;🔄 Тяжелый воркер 1 остановлен\n2026-10-18 12:00:42,000;vkkbot_100;INFO;🛑 Все воркеры остановлены\n2026-10-18 12:00:43,000;vkkbot_200;INFO;Остановка\n2026-10-18 12:00:44,000;vkkbot_200;INFO;Остановка по Ctrl+C\n2026-10-18 12:00:45,000;vkkbot_100;ERROR;The groups have written. Return\n2026-10-18 12:00:46,000;vkkbot_100;ERROR;get_user_info error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\n2026-10-18 12:00:47,000;vkkbot_200;ERROR;send_message fail 101: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\n2026-10-18 12:00:48,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 1s\n2026-10-18 12:00:49,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 2s\n2026-10-18 12:00:50,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 4s\n2026-10-18 12:00:51,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 8s\n2026-10-18 12:00:52,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 16s\nTraceback (most recent call last):\n  File \"bot.py\", line 793, in urlopen\n    response = self._make_request(\n  File \"bot.py\", line 540, in _make_request\n    response = conn.getresponse()\n  File \"bot.py\", line 638, in getresponse\n    httplib_response = super().getresponse()\n  File \"bot.py\", line 1404, in getresponse\n    response.begin()\n  File \"bot.py\", line 323, in begin\n    version, status, reason = self._read_status()\n  File \"bot.py\", line 292, in _read_status\n    raise RemoteDisconnected(\"Remote end closed connection without\"\nhttp.client.RemoteDisconnected: Remote end closed connection without response\n\nDuring handling of the above exception, another exception occurred:\n  File \"bot.py\", line 696, in send\n    resp = conn.urlopen(\n  File \"bot.py\", line 847, in urlopen\n    retries = retries.increment(\n  File \"bot.py\", line 510, in increment\n    raise reraise(type(error), error, _stacktrace)\n  File \"bot.py\", line 38, in reraise\n    raise value.with_traceback(tb)\nurllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\n  File \"bot.py\", line 158, in get_user_info\n    user_lst = vk.users.get(user_ids=user_id, fields=fields)\n  File \"bot.py\", line 1055, in __call__\n    return self._vk.method(self._method, kwargs)\n  File \"bot.py\", line 903, in method\n    response = self.http.post(\n  File \"bot.py\", line 712, in post\n    return self.request(\"POST\", url, data=data, json=json, **kwargs)\n  File \"bot.py\", line 651, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"bot.py\", line 784, in send\n    r = adapter.send(request, **kwargs)\n  File \"bot.py\", line 711, in send\n    raise ConnectionError(err, request=request)\nrequests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\nНа этой неделе \n  File \"bot.py\", line 219, in send_message\n    vk.messages.send(\n11\nПредлагаем ваше\nПриглашаю вас пр\n",
     "output": {
+      "bell": {
+        "completed": 1,
+        "average_seconds": 1.0
+      },
       "bell_status": {
-        "completed": 2,
-        "average_seconds": 0.375
+        "completed": 1,
+        "average_seconds": 1.0
       },
       "search": {
-        "completed": 2,
-        "average_seconds": 1.25
+        "completed": 1,
+        "average_seconds": 1.0
+      },
+      "student": {
+        "completed": 1,
+        "average_seconds": 1.0
+      },
+      "teacher": {
+        "completed": 1,
+        "average_seconds": 1.0
       }
     }
   },
@@ -248,23 +287,23 @@
   {
     "id": "classes-sample",
     "kind": "classes",
-    "input": "2026-10-18 12:00:00,000;vkkbot_100;INFO;🚀 Бот запущен. PID=100\n2026-10-18 12:00:00,500;vkkbot_100;INFO;REQUEST;101;8б\n2026-10-18 12:00:01,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:01,050;vkkbot_100;INFO;REQUEST;202;6б\n2026-10-18 12:00:01,100;vkkbot_100;INFO;🔄 Задача search для 202\n2026-10-18 12:00:02,000;vkkbot_100;INFO;✅ Задача search выполнена для 101\n2026-10-18 12:00:02,100;vkkbot_100;INFO;CACHED;101;8б\n2026-10-18 12:00:02,600;vkkbot_100;INFO;✅ Задача search выполнена для 202\n2026-10-18 12:00:03,000;vkkbot_100;INFO;REQUEST;101;5В\n2026-10-18 12:00:03,100;vkkbot_100;INFO;REQUEST;202;10 Т\n2026-10-18 12:00:03,200;vkkbot_200;INFO;REQUEST;303;8б\n2026-10-18 12:00:03,300;vkkbot_200;INFO;CACHED;303;8б\n2026-10-18 12:00:03,400;vkkbot_100;INFO;REQUEST;101;▶️ Запуск бота\n2026-10-18 12:00:03,500;vkkbot_100;INFO;REQUEST;202;⏹️ Остановка бота\n2026-10-18 12:00:04,000;vkkbot_200;INFO;🔄 Задача bell_status для 303\n2026-10-18 12:00:04,500;vkkbot_200;INFO;✅ Задача bell_status выполнена для 303\nTraceback (most recent call last):\nnot-a-date;vkkbot_100;INFO;REQUEST;404;8б\n\n2026-10-18 12:00:05,000;vkkbot_100;INFO;REQUEST;101;6б\n2026-10-18 12:00:05,100;vkkbot_100;INFO;REQUEST;202;8б\n2026-10-18 12:00:05,200;vkkbot_200;INFO;🛑 Все воркеры остановлены\n2026-10-18 12:00:06,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:06,100;vkkbot_200;INFO;REQUEST;303;10т\n2026-10-18 12:00:06,200;vkkbot_100;INFO;REQUEST;101;🔔 Скоро звонок?\n2026-10-18 12:00:07,000;vkkbot_100;INFO;🔄 Задача bell_status для 101\n2026-10-18 12:00:07,250;vkkbot_100;INFO;✅ Задача bell_status выполнена для 101\n2026-10-18 12:00:08,000;vkkbot_200;INFO;REQUEST;204;8б\n2026-10-18 12:00:08,100;vkkbot_200;INFO;REQUEST;204;10т\n",
+    "input": "2026-10-18 12:00:00,000;vkkbot_100;INFO;🚀 Бот запущен. PID=100\n2026-10-18 12:00:01,000;vkkbot_100;INFO;🔄 Тяжелый воркер 0 запущен\n2026-10-18 12:00:02,000;vkkbot_100;INFO;🔄 Тяжелый воркер 1 запущен\n2026-10-18 12:00:03,000;vkkbot_100;INFO;🚀 Запущено 2 тяжелых воркеров\n2026-10-18 12:00:04,000;vkkbot_200;INFO;🚀 Запущено 2 heavy + 4 incoming воркеров\n2026-10-18 12:00:05,000;vkkbot_100;INFO;📡 LongPoll запущен\n2026-10-18 12:00:06,000;vkkbot_200;INFO;🌐 Запуск в режиме вебхука (dev)\n2026-10-18 12:00:07,000;vkkbot_200;INFO;🌐 Запуск в режиме вебхука\n2026-10-18 12:00:08,000;vkkbot_200;INFO;🩺 Health-сервер на 0.0.0.0:8000\n2026-10-18 12:00:09,000;vkkbot_100;INFO;REQUEST;101;8б\n2026-10-18 12:00:10,000;vkkbot_100;INFO;REQUEST;202;10 Т\n2026-10-18 12:00:11,000;vkkbot_100;INFO;REQUEST;303;5В\n2026-10-18 12:00:12,000;vkkbot_100;INFO;REQUEST;404;05 в\n2026-10-18 12:00:13,000;vkkbot_100;INFO;REQUEST;505;10т\n2026-10-18 12:00:14,000;vkkbot_100;INFO;REQUEST;101;8Б\n2026-10-18 12:00:15,000;vkkbot_100;INFO;REQUEST;202;6б\n2026-10-18 12:00:16,000;vkkbot_100;INFO;REQUEST;101;▶️ Запуск бота\n2026-10-18 12:00:17,000;vkkbot_100;INFO;REQUEST;202;⏹️ Остановка бота\n2026-10-18 12:00:18,000;vkkbot_100;INFO;REQUEST;303;🔔 Скоро звонок?\n2026-10-18 12:00:19,000;vkkbot_200;INFO;REQUEST;404;12345\n2026-10-18 12:00:20,000;vkkbot_200;INFO;REQUEST;505;Иванов\n2026-10-18 12:00:21,000;vkkbot_200;INFO;REQUEST;606;Иванов Иван\n2026-10-18 12:00:22,000;vkkbot_200;INFO;REQUEST;707;student\n2026-10-18 12:00:23,000;vkkbot_200;INFO;REQUEST;808;teacher\n2026-10-18 12:00:24,000;vkkbot_200;INFO;REQUEST;909;иванов\n2026-10-18 12:00:25,000;vkkbot_200;INFO;REQUEST;111;На этой неделе \n2026-10-18 12:00:26,000;vkkbot_100;INFO;CACHED;101;8б\n2026-10-18 12:00:27,000;vkkbot_200;INFO;CACHED;505;Иванов\n2026-10-18 12:00:28,000;vkkbot_200;INFO;RESPONCE;101;Бот молчит\n2026-10-18 12:00:29,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:30,000;vkkbot_100;INFO;✅ Задача search выполнена для 101\n2026-10-18 12:00:31,000;vkkbot_100;INFO;🔄 Задача bell_status для 202\n2026-10-18 12:00:32,000;vkkbot_100;INFO;✅ Задача bell_status выполнена для 202\n2026-10-18 12:00:33,000;vkkbot_200;INFO;🔄 Задача student для 303\n2026-10-18 12:00:34,000;vkkbot_200;INFO;✅ Задача student выполнена для 303\n2026-10-18 12:00:35,000;vkkbot_200;INFO;🔄 Задача teacher для 404\n2026-10-18 12:00:36,000;vkkbot_200;INFO;✅ Задача teacher выполнена для 404\n2026-10-18 12:00:37,000;vkkbot_100;INFO;🔄 Задача bell для 505\n2026-10-18 12:00:38,000;vkkbot_100;INFO;✅ Задача bell выполнена для 505\n2026-10-18 12:00:39,000;vkkbot_100;INFO;🔄 Задача search для 101\n2026-10-18 12:00:40,000;vkkbot_100;INFO;🔄 Тяжелый воркер 0 остановлен\n2026-10-18 12:00:41,000;vkkbot_100;INFO;🔄 Тяжелый воркер 1 остановлен\n2026-10-18 12:00:42,000;vkkbot_100;INFO;🛑 Все воркеры остановлены\n2026-10-18 12:00:43,000;vkkbot_200;INFO;Остановка\n2026-10-18 12:00:44,000;vkkbot_200;INFO;Остановка по Ctrl+C\n2026-10-18 12:00:45,000;vkkbot_100;ERROR;The groups have written. Return\n2026-10-18 12:00:46,000;vkkbot_100;ERROR;get_user_info error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\n2026-10-18 12:00:47,000;vkkbot_200;ERROR;send_message fail 101: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\n2026-10-18 12:00:48,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 1s\n2026-10-18 12:00:49,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 2s\n2026-10-18 12:00:50,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 4s\n2026-10-18 12:00:51,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 8s\n2026-10-18 12:00:52,000;vkkbot_100;WARNING;LongPoll: HTTPSConnectionPool(host='lp.vk.ru', port=443): Read timed out. (read timeout=35). Реконнект через 16s\nTraceback (most recent call last):\n  File \"bot.py\", line 793, in urlopen\n    response = self._make_request(\n  File \"bot.py\", line 540, in _make_request\n    response = conn.getresponse()\n  File \"bot.py\", line 638, in getresponse\n    httplib_response = super().getresponse()\n  File \"bot.py\", line 1404, in getresponse\n    response.begin()\n  File \"bot.py\", line 323, in begin\n    version, status, reason = self._read_status()\n  File \"bot.py\", line 292, in _read_status\n    raise RemoteDisconnected(\"Remote end closed connection without\"\nhttp.client.RemoteDisconnected: Remote end closed connection without response\n\nDuring handling of the above exception, another exception occurred:\n  File \"bot.py\", line 696, in send\n    resp = conn.urlopen(\n  File \"bot.py\", line 847, in urlopen\n    retries = retries.increment(\n  File \"bot.py\", line 510, in increment\n    raise reraise(type(error), error, _stacktrace)\n  File \"bot.py\", line 38, in reraise\n    raise value.with_traceback(tb)\nurllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\n  File \"bot.py\", line 158, in get_user_info\n    user_lst = vk.users.get(user_ids=user_id, fields=fields)\n  File \"bot.py\", line 1055, in __call__\n    return self._vk.method(self._method, kwargs)\n  File \"bot.py\", line 903, in method\n    response = self.http.post(\n  File \"bot.py\", line 712, in post\n    return self.request(\"POST\", url, data=data, json=json, **kwargs)\n  File \"bot.py\", line 651, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"bot.py\", line 784, in send\n    r = adapter.send(request, **kwargs)\n  File \"bot.py\", line 711, in send\n    raise ConnectionError(err, request=request)\nrequests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\nНа этой неделе \n  File \"bot.py\", line 219, in send_message\n    vk.messages.send(\n11\nПредлагаем ваше\nПриглашаю вас пр\n",
     "limit": 10,
     "output": [
       {
-        "class": "8б",
-        "count": 4
-      },
-      {
         "class": "10т",
-        "count": 3
-      },
-      {
-        "class": "6б",
         "count": 2
       },
       {
         "class": "5в",
+        "count": 2
+      },
+      {
+        "class": "8б",
+        "count": 2
+      },
+      {
+        "class": "6б",
         "count": 1
       }
     ]
