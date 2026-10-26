@@ -2,6 +2,7 @@ remote_theme: pages-themes/midnight
 heading_anchors: true
 permalink: pretty
 layout: default
+title: ТМП
 nav_enabled: true
 search_enabled: true
 
@@ -13,3 +14,4 @@ exclude:
   - tasks/
 
 lang: ru
+
