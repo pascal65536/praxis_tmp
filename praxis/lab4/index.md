@@ -18,7 +18,7 @@
 
 ### Пример
 
-{% raw %}
+
 ```python
 wallet = Wallet(100)
 
@@ -28,7 +28,7 @@ print(wallet.withdraw(200))     # False
 print(wallet.get_balance())     # 120
 print(wallet._balance)          # 120
 ```
-{% endraw %}
+
 
 Защищённый атрибут `_balance` — это соглашение об инкапсуляции, а не запрет языка на доступ к атрибуту.
 
@@ -48,12 +48,12 @@ print(wallet._balance)          # 120
 
 Напишите функцию:
 
-{% raw %}
+
 ```python
 def calculate_total_perimeter(shapes):
     ...
 ```
-{% endraw %}
+
 
 Функция принимает список фигур и возвращает сумму результатов вызова `perimeter()` для каждого объекта. Для пустого списка результат равен `0`.
 
@@ -63,14 +63,14 @@ def calculate_total_perimeter(shapes):
 
 ### Пример
 
-{% raw %}
+
 ```python
 shapes = [Triangle(3, 4, 5), Circle(10)]
 total = calculate_total_perimeter(shapes)
 
 print(total)  # 74.83185307179586
 ```
-{% endraw %}
+
 
 ## Задача 3. Операции с векторами в двумерном пространстве
 
@@ -100,7 +100,7 @@ print(total)  # 74.83185307179586
 
 ### Пример
 
-{% raw %}
+
 ```python
 v1 = Vector2D(1, 2)
 v2 = Vector2D(3, 4)
@@ -110,13 +110,13 @@ print(v1 * 3)           # (3, 6)
 print(v1 == Vector2D(1, 2))  # True
 print({v1, Vector2D(1, 2)})  # один элемент
 ```
-{% endraw %}
+
 
 ## Задача 4. Наследование: «Сотрудники и менеджеры»
 
 Базовый класс уже приведён в шаблоне:
 
-{% raw %}
+
 ```python
 class Employee:
     def __init__(self, name, base_salary):
@@ -126,7 +126,7 @@ class Employee:
     def calculate_bonus(self):
         return self.base_salary * 0.10
 ```
-{% endraw %}
+
 
 Создайте класс `Manager`, который наследуется от `Employee`.
 
@@ -137,32 +137,32 @@ class Employee:
 
 Формула:
 
-{% raw %}
+
 ```python
 base_salary * 0.10 + base_salary * 0.05 * team_size
 ```
-{% endraw %}
+
 
 ### Пример
 
-{% raw %}
+
 ```python
 manager = Manager("Alice", 50000, 5)
 
 print(manager.calculate_bonus())  # 17500.0
 print(isinstance(manager, Employee))  # True
 ```
-{% endraw %}
+
 
 ## Проверка решения
 
 Автономная проверка запускается командой:
 
-{% raw %}
+
 ```bash
 python3 check.py
 ```
-{% endraw %}
+
 
 Она не требует установки `pytest` или других сторонних пакетов. Подробная инструкция находится в файле `README.md`.
 

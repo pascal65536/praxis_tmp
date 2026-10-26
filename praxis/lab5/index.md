@@ -11,31 +11,31 @@
 
 **Откройте терминал**, перейдите в папку проекта:
 
-{% raw %}
+
 ```bash
 cd путь/до/lab5
 ```
-{% endraw %}
+
 
 Теперь создаём окружение одной командой:
 
-{% raw %}
+
 ```bash
 python3 -m venv .venv # Linux
 python -m venv .venv  # Windows
 ```
-{% endraw %}
+
 
 **Что происходит?**
 
 В текущей папке появилась скрытая папка `.venv`. Можете убедиться:
 
-{% raw %}
+
 ```bash
 ls -a   # Linux
 dir /a  # Windows
 ```
-{% endraw %}
+
 
 Вы увидите `.venv` в списке. Внутри — свой Python, свой `pip`, свои библиотеки. Пока ничего не установлено, но фундамент готов. В эту папку будут устанавливаться нужные пакеты. Содержимое этой папки только ваше. В Git передавать эту папку нельзя - она тяжелая и легко восстанавливается одной командой. Экономьте место на Git, пожалуйста.
 
@@ -46,58 +46,58 @@ dir /a  # Windows
 Команда зависит от операционной системы и оболочки. Выберите свою:
 
 **Linux / macOS (bash, zsh):**
-{% raw %}
+
 ```bash
 source .venv/bin/activate
 ```
-{% endraw %}
+
 
 **Windows — PowerShell:**
-{% raw %}
+
 ```powershell
 .venv\Scripts\Activate.ps1
 ```
-{% endraw %}
+
 
 **Windows — cmd:**
-{% raw %}
+
 ```cmd
 .venv\Scripts\activate.bat
 ```
-{% endraw %}
+
 
 **Windows — Git Bash:**
-{% raw %}
+
 ```bash
 source .venv/Scripts/activate
 ```
-{% endraw %}
+
 
 **Если PowerShell ругается на политику выполнения** («cannot be loaded because running scripts is disabled»), один раз выполните и подтвердите команду. После этого активация заработает.
-{% raw %}
+
 ```powershell
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
-{% endraw %}
+
 
 # Как понять, что всё получилось
 
 В начале строки приглашения появится префикс **`(.venv)`**:
 
-{% raw %}
+
 ```cmd
 (.venv) user@machine:~/lab5$
 ```
-{% endraw %}
+
 
 Это главный признак. И ещё одна проверка — какой Python теперь используется:
 
-{% raw %}
+
 ```bash
 which python      # Linux / macOS
 where python      # Windows
 ```
-{% endraw %}
+
 
 Путь должен вести внутрь `.venv` (например, `.../lab5/.venv/bin/python`). 
 
@@ -106,11 +106,11 @@ where python      # Windows
 
 Убедитесь, что префикс `(.venv)` на месте (иначе пакет уйдёт в систему — не то, что нам нужно). В linux-подобных системах это запрещено. Устанавливаем Flask:
 
-{% raw %}
+
 ```bash
 pip install flask requests
 ```
-{% endraw %}
+
 
 Пока `pip` качает и распаковывает, вы увидите что-то вроде:
 
@@ -128,15 +128,15 @@ Successfully installed flask-3.x.x jinja2-... werkzeug-...
 
 Два быстрых способа:
 
-{% raw %}
+
 ```bash
 pip list
 ```
-{% endraw %}
+
 
 Вы увидите список установленных пакетов и их версии.
 
-{% raw %}
+
 ```cmd
 Package            Version
 ------------------ ----------
@@ -154,48 +154,48 @@ requests           2.34.2
 urllib3            2.8.0
 Werkzeug           3.1.9
 ```
-{% endraw %}
+
 
 Или в интерактивной консоли Python
 
-{% raw %}
+
 ```cmd
 python
 ```
-{% endraw %}
 
-{% raw %}
+
+
 ```python
 import flask
 print(flask.__version__)
 ```
-{% endraw %}
+
 
 Должна напечататься версия, например `3.1.3`. Если версия появилась — установка прошла успешно. 
 
 Через некоторое время этот способ перестанет работать, по этому запоминаем новый способ, через метаданные:
 
-{% raw %}
+
 ```python
 import importlib.metadata
 print(importlib.metadata.version("flask"))
 # Вывод 3.1.3
 ```
-{% endraw %}
+
 
 # requirements.txt
 
 Чтобы проект можно было легко воспроизвести на другой машине, сохраним список пакетов в файл:
 
-{% raw %}
+
 ```bash
 pip freeze > requirements.txt
 ```
-{% endraw %}
+
 
 Откройте `requirements.txt` — там будет примерно:
 
-{% raw %}
+
 ```text
 blinker==1.9.0
 certifi==2026.10.18
@@ -210,7 +210,7 @@ requests==2.34.2
 urllib3==2.8.0
 Werkzeug==3.1.9
 ```
-{% endraw %}
+
 
 **Зачем это:** на другой машине достаточно будет набрать `pip install -r requirements.txt` — и там установятся  те же самые версии. Это стандартная практика, и ваш `requirements.txt` — часть «чистоты» репозитория.
 # .gitignore
@@ -228,7 +228,7 @@ __pycache__/
 
 Создадим небольшое приложение - трекер задач. Создайте в рабочей папке файл `demo.py` и наберите (или скопируйте) следующее:
 
-{% raw %}
+
 ```python
 from flask import Flask, request, jsonify
 
@@ -285,7 +285,7 @@ def delete_task(task_id):
 if __name__ == "__main__":
     app.run(debug=True)
 ```
-{% endraw %}
+
 
 **Что тут происходит:**
 
@@ -306,11 +306,11 @@ if __name__ == "__main__":
 
 Убедитесь, что виртуальное окружение активно (в приглашении `(.venv)`), и запустите:
 
-{% raw %}
+
 ```bash
 python demo.py
 ```
-{% endraw %}
+
 
 **Что вы должны увидеть в консоли:**
 
@@ -328,17 +328,17 @@ python demo.py
 
 В VSCode запустите:
 
-{% raw %}
+
 ```bash
 python -m ensurepip --
 python -m pip --version
 ```
-{% endraw %}
+
 ## **Чтение полного списка**
 
 GET
 
-{% raw %}
+
 ```bash
 import requests
 
@@ -347,16 +347,16 @@ response = requests.get(url)
 print('status_code =', response.status_code)
 print('json =', response.json())
 ```
-{% endraw %}
+
 
 **Ожидаемый вывод:**
-{% raw %}
+
 ```json
 status_code = 200
 
 json = [{'done': False, 'id': 1, 'title': 'Выучить REST'}, {'done': False, 'id': 2, 'title': 'Разобраться с Flask'}, {'done': True, 'id': 3, 'title': 'Настроить виртуальное окружение'}]
 ```
-{% endraw %}
+
 
 Проверьте `http://localhost:5000/tasks` 
 
@@ -368,7 +368,7 @@ json = [{'done': False, 'id': 1, 'title': 'Выучить REST'}, {'done': False
 
 GET
 
-{% raw %}
+
 ```python
 import requests
 
@@ -377,15 +377,15 @@ response = requests.get(url)
 print('status_code =', response.status_code)
 print('json =', response.json())
 ```
-{% endraw %}
+
 
 **Ожидаемый вывод:**
-{% raw %}
+
 ```bash
 status_code = 200
 json = {'done': False, 'id': 2, 'title': 'Разобраться с Flask'}
 ```
-{% endraw %}
+
 
 Проверьте `http://localhost:5000/tasks` 
 
@@ -397,7 +397,7 @@ json = {'done': False, 'id': 2, 'title': 'Разобраться с Flask'}
 
 POST
 
-{% raw %}
+
 ```python
 import requests
 
@@ -407,7 +407,7 @@ response = requests.post(url, json=data)
 print('status_code =', response.status_code)
 print('json =', response.json())
 ```
-{% endraw %}
+
 
 Передаём requests методом POST. Полезную нагрузку передаём отдельно в json параметре.
 
@@ -429,7 +429,7 @@ json = {'done': False, 'id': 4, 'title': 'Первая задача'}
 
 PATCH
 
-{% raw %}
+
 ```python
 import requests
 
@@ -445,18 +445,18 @@ print('status_code =', response.status_code)
 print('json =', response.json())
 print('headers =', response.request.headers)
 ```
-{% endraw %}
+
 
 Здесь показаны 2 варианта - с явным заголовком и без.
 
 **Ожидаемый вывод:**
-{% raw %}
+
 ```bash
 status_code = 200
 json = {'done': True, 'id': 1, 'title': 'Выучить REST'}
 headers = {'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '14'}
 ```
-{% endraw %}
+
 
 **Обратите внимание:** мы прислали только `done`, а `title` и `id` сохранились — это и есть «частичное обновление» (`PATCH`), в отличие от `PUT`, который заменил бы ресурс целиком.
 В заголовке headers найдите ключ `Content-Type` - это наш ключ, который мы указали вручную.
@@ -489,7 +489,7 @@ headers = {'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, def
 
 DELETE
 
-{% raw %}
+
 ```python
 import requests
 
@@ -501,16 +501,16 @@ print('text =', repr(response.text))
 print('content =', repr(response.content))
 # то же в байтах
 ```
-{% endraw %}
+
 
 **Ожидаемый вывод:**
-{% raw %}
+
 ```cmd
 status_code = 204
 text = ''
 content = b''
 ```
-{% endraw %}
+
 
 **На что обратить внимание:**
 - код `204 NO CONTENT` — успех, тело отсутствует;
@@ -524,7 +524,7 @@ content = b''
 
 ## **Проверяем 404**
 
-{% raw %}
+
 ```python
 import requests
 
@@ -533,15 +533,15 @@ response = requests.get(url)
 print('status_code =', response.status_code)
 print('json =', response.json())
 ```
-{% endraw %}
+
 
 **Ожидаемый вывод:**
-{% raw %}
+
 ```text
 status_code = 404
 json = {'error': 'не найдено'}
 ```
-{% endraw %}
+
 
 **Обратите внимание:** 404 вернул **наш код** (функция `get_task` не нашла задачу), а не Flask — тело `{"error": "не найдено"}` наше. Сравните с `curl -i http://localhost:5000/tasks/abc` — там тоже 404, но с HTML-страницей Flask, потому что маршрут не совпал и до нашей функции дело не дошло. **Запомните эту разницу:** 404 «ресурс не найден» и 404 «такого маршрута нет» — разные вещи, хотя код одинаковый.
 
@@ -580,19 +580,19 @@ REST (Representational State Transfer) — архитектурный стиль
 
 Одиночная задача — объект:
 
-{% raw %}
+
 ```json
 {"id": 6, "title": "Выучить REST", "done": false, "created_at": "2026-10-18T23:00:00"}
 ```
-{% endraw %}
+
 
 Список — обёртка с мета-информацией для пейджинации:
 
-{% raw %}
+
 ```json
 {"items": [...], "total": 5, "page": 1, "per_page": 10, "pages": 1}
 ```
-{% endraw %}
+
 
 Ошибка — единый формат: `{"error": "описание"}`.
 
@@ -645,7 +645,7 @@ REST (Representational State Transfer) — архитектурный стиль
 
 В рабочей папке у вас уже есть `demo.py`  Создайте в той же папке окружение, установите зависимости и скопируйте сюда шаблон `app.py`:
 
-{% raw %}
+
 ```bash
 mkdir lab5 && cd lab5
 python3 -m venv .venv
@@ -653,7 +653,7 @@ source .venv/bin/activate        # Windows: .venv\Scripts\Activate.ps1
 pip install flask requests
 pip freeze > requirements.txt
 ```
-{% endraw %}
+
 
 Создайте `.gitignore` (пригодится на этапе публикации):
 
@@ -667,11 +667,11 @@ __pycache__/
 
 ### Этап 2. Запуск
 
-{% raw %}
+
 ```bash
 python app.py
 ```
-{% endraw %}
+
 
 Сервер поднимается на порту 5000. Откройте в браузере `http://localhost:5000/` — должно вернуться JSON-описание API. Сервер хранит состояние в памяти: перед каждым полным прогоном тестов перезапускайте его.
 
@@ -679,11 +679,11 @@ python app.py
 
 Файл `test_tasks.py` проверяет все требования постановки: seed, пейджинация, сортировка, фильтры, коды ошибок, идемпотентность DELETE, монотонность id. Тесты написаны на `requests` + `assert` — каждая проверка читается как обычный код:
 
-{% raw %}
+
 ```bash
 python test_tasks.py
 ```
-{% endraw %}
+
 
 Ожидается последовательность «N. ... ок» и строка «Все тесты пройдены». При провале `assert` Python покажет файл и строку с ожидаемым и фактическим значением — доведите сервер до зелёного прогона. Тесты самовосстанавливают состояние сервера (блок `finally`), повторять можно без перезапуска.
 
@@ -725,12 +725,12 @@ Settings => Collaborators => Add people => GitHub-username преподават�
 
 ### Этап 7. Чистота репозитория
 
-{% raw %}
+
 ```bash
 git status --porcelain                     # не выводит ничего
 git check-ignore -v .venv/ __pycache__/    # правило .gitignore сработало
 ```
-{% endraw %}
+
 
 На GitHub в корне должны быть только: `app.py`, `test_tasks.py`, `requirements.txt`, `.gitignore`. Никаких `.venv/`, `__pycache__/`, `.pyc`, файлов IDE, секретов. Если мусор попал в историю: `git rm -r --cached <путь>`, коммит, push.
 
@@ -836,7 +836,7 @@ git check-ignore -v .venv/ __pycache__/    # правило .gitignore сраб�
 
 Ниже — скелет `app.py` со всеми маршрутами, но с пустыми телами функций и `TODO`-комментариями. Заполните их по ТЗ выше.
 
-{% raw %}
+
 ```python
 """Tasks API — CRUD задач на Flask.
 
@@ -990,7 +990,7 @@ def index():
 if __name__ == "__main__":
     app.run(debug=True)
 ```
-{% endraw %}
+
 ## 7. Критерии готовности
 
 Все эндпоинты возвращают коды и тела, описанные в разделе 4. 
