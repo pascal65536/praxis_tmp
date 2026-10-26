@@ -5,6 +5,3 @@ plugins:
 
 exclude:
   - tasks/
-
-title: TMP
-description: TMP for GitHub Pages
