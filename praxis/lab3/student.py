@@ -3,7 +3,6 @@ import sys
 from pathlib import Path
 
 
-# === ОБЯЗАТЕЛЬНАЯ ЧАСТЬ ===
 def solve(text):
     """Возвращает статистический отчёт по содержимому журнала."""
     pass  # Ваш код
@@ -12,17 +11,15 @@ def solve(text):
 # === ДОПОЛНИТЕЛЬНАЯ ЧАСТЬ 1 ===
 def analyze_task_durations(text):
     """Возвращает количество и среднюю длительность завершённых задач."""
-    pass  # Ваш код: выполняется только при проверке с флагом --advanced
+    pass  
 
 
 # === ДОПОЛНИТЕЛЬНАЯ ЧАСТЬ 2 ===
 def top_classes(text, limit=10):
     """Возвращает рейтинг запрашиваемых классов."""
-    pass  # Ваш код: выполняется только при проверке с флагом --advanced
+    pass 
 
 
-# Файловый интерфейс уже реализован. Он используется командой:
-# python student.py data/sample.log report.json
 def main():
     if len(sys.argv) != 3:
         print("Использование: python student.py <входной_лог> <выходной_json>")
