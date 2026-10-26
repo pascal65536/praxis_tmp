@@ -1,51 +1,18 @@
-# Тема и базовый вид
 remote_theme: just-the-docs/just-the-docs@v0.7.0
 color_scheme: light
 heading_anchors: true
 permalink: pretty
 
-# Плагины
 plugins:
   - jekyll-remote-theme
   - jekyll-readme-index
 
-# Исключения из сборки
 exclude:
   - tasks/
-  - README.md
 
-# Заголовок и описание сайта
 title: "TMP"
 description: "TMP is my life."
 lang: ru
 
-# Боковое меню
 nav_enabled: true
-
-# Поиск
 search_enabled: true
-search:
-  heading_level: 2
-  previews: 3
-  preview_words_before: 5
-  preview_words_after: 10
-  rel_url: true
-  button: true
-  focus_shortcut_key: "k"
-
-# Ссылка в правом верхнем углу
-aux_links:
-  "GitHub":
-    - "https://github.com/pascal65536/praxis_tmp"
-aux_links_new_tab: true
-
-# Ссылка «Редактировать страницу»
-gh_edit_link: true
-gh_edit_link_text: "Редактировать эту страницу на GitHub"
-gh_edit_repository: "https://github.com/pascal65536/praxis_tmp"
-gh_edit_branch: "main"
-gh_edit_view_mode: "edit"
-
-# Нижний колонтитул
-last_edit_timestamp: true
-last_edit_time_format: "%d.%m.%Y"
