@@ -17,18 +17,10 @@ lang: ru
 nav_enabled: true
 search_enabled: true
 
-collections:
-  docs:
-    permalink: "/:collection/:path/"
-    output: true
-  guides:
-    permalink: "/:collection/:path/"
-    output: true
-
-just_the_docs:
-  collections:
-    docs:
-      name: "Документация"
-    guides:
-      name: "Руководства"
-      nav_fold: true
+callouts:
+  warning:
+    title: "Внимание"
+    color: yellow
+  important:
+    title: "Важно"
+    color: blue
