@@ -1,4 +1,8 @@
-remote_theme: pages-themes/architect
+remote_theme: just-the-docs/just-the-docs@v0.7.0
+color_scheme: light
+search_enabled: true
+heading_anchors: true
+permalink: pretty
 
 plugins:
   - jekyll-remote-theme
