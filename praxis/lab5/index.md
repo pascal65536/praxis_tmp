@@ -803,14 +803,17 @@ git check-ignore -v .venv/ __pycache__/    # правило .gitignore сраб�
 ### 4.6. `PATCH /tasks/<id>` — частичное обновление
 
 Обновляются только переданные поля. Для `title`: валидация как в `POST`, но с исключением собственного id; если новое название после нормализации совпадает с текущим — проверка на дубликат не выполняется. Для `done`: приводится к `bool`. Ответ `200` — обновлённая задача. Ошибки: `404` — нет задачи; `400` — тело не JSON-объект; `422` — невалидный `title`; `409` — дубликат.
+
 ### 4.7. `DELETE /tasks/<id>` — удаление
 
 Ответ `204` с пустым телом. Если задачи нет (в том числе при повторном DELETE) — `404`. Идемпотентность реализуется через `404`, а не через повторный `204`.
+
 ## 5. Общие требования
 
 ### 5.1. Формат ошибок
 
 Все ошибки — JSON-объект вида `{"error": "текст сообщения на русском"}`.
+
 ### 5.2. Коды состояния
 
 - `200` — успешное чтение или обновление;
@@ -820,6 +823,7 @@ git check-ignore -v .venv/ __pycache__/    # правило .gitignore сраб�
 - `404` — ресурс не найден;
 - `409` — конфликт (дубликат `title`);
 - `422` — семантически невалидные данные (`title` пустой или слишком длинный).
+
 ### 5.3. Вспомогательные функции
 
 - `now_iso()` — текущее время в ISO 8601 UTC;
@@ -829,175 +833,5 @@ git check-ignore -v .venv/ __pycache__/    # правило .gitignore сраб�
 - `title_exists(title, exclude_id=None)` — проверка дубликата;
 - `validate_title(data, exclude_id=None)` — общая валидация `title`; возвращает `(title, None)` или `(None, error_response)`;
 - `seed()` — заполнение начальными данными при старте.
-### 5.4. Константы
-
-`MAX_TITLE_LEN = 200`, `DEFAULT_PER_PAGE = 10`, `MAX_PER_PAGE = 100`.
-## 6. Шаблон
-
-Ниже — скелет `app.py` со всеми маршрутами, но с пустыми телами функций и `TODO`-комментариями. Заполните их по ТЗ выше.
-
-
-```python
-"""Tasks API — CRUD задач на Flask.
-
-Реализуйте функции по техническому заданию.
-Все маршруты уже объявлены, тела функций пусты.
-"""
-
-from flask import Flask, request, jsonify
-from datetime import datetime, timezone, timedelta
-
-app = Flask(__name__)
-
-tasks = []
-next_id = 1
-
-MAX_TITLE_LEN = 200
-DEFAULT_PER_PAGE = 10
-MAX_PER_PAGE = 100
-
-
-# ---------------------------------------------------------------------------
-# Вспомогательные функции
-# ---------------------------------------------------------------------------
-
-def now_iso():
-    """Текущее время в ISO 8601 UTC."""
-    # TODO: вернуть datetime.now(timezone.utc).isoformat()
-    raise NotImplementedError
-
-
-def normalize(title):
-    """Нормализация title для сравнения: схлопнуть пробелы + нижний регистр."""
-    # TODO: " ".join(title.split()).lower()
-    raise NotImplementedError
-
-
-def err(message, code):
-    """JSON-ответ об ошибке: {"error": message} с заданным кодом."""
-    # TODO: return jsonify({"error": message}), code
-    raise NotImplementedError
-
-
-def find_task(task_id):
-    """Найти задачу по id или вернуть None."""
-    # TODO: линейный поиск по tasks
-    raise NotImplementedError
-
-
-def title_exists(title, exclude_id=None):
-    """Есть ли уже задача с таким title (с нормализацией)?
-
-    exclude_id — id задачи, которую переименовываем (её собственное название
-    дубликатом не считается).
-    """
-    # TODO: any(...) по tasks с учётом exclude_id и normalize
-    raise NotImplementedError
-
-
-def validate_title(data, exclude_id=None):
-    """Валидация title. Возвращает (title, None) или (None, error_response).
-
-    Правила:
-      - отсутствует           -> 400
-      - не строка / пустая    -> 422
-      - длиннее MAX_TITLE_LEN -> 422
-      - дубликат              -> 409
-    """
-    # TODO: реализовать по шагам, каждый шаг — return None, err(...)
-    raise NotImplementedError
-
-
-def seed():
-    """Заполнить хранилище демонстрационными задачами при старте."""
-    # TODO: 5 задач с id 1..5, created_at = now - 5ч + i часов, next_id = 6
-    raise NotImplementedError
-
-
-# Вызов seed() при импорте модуля
-# seed()
-
-
-# ---------------------------------------------------------------------------
-# Вьюхи
-# ---------------------------------------------------------------------------
-
-@app.get("/tasks")
-def list_tasks():
-    """GET /tasks — список с фильтрами, сортировкой и пагинацией.
-
-    Query: done, q, sort, order, page, per_page.
-    Ответ: {items, page, per_page, total, pages}.
-    """
-    # TODO: реализовать по ТЗ п. 4.2
-    raise NotImplementedError
-
-
-@app.get("/tasks/<int:task_id>")
-def get_task(task_id):
-    """GET /tasks/<id> — одна задача. 404, если нет."""
-    # TODO: find_task -> 404 или jsonify(task), 200
-    raise NotImplementedError
-
-
-@app.post("/tasks")
-def create_task():
-    """POST /tasks — создать задачу.
-
-    Тело — JSON-объект {title, done?}.
-    Валидация title через validate_title().
-    Ответ 201 с созданной задачей.
-    """
-    # TODO: реализовать по ТЗ п. 4.4
-    raise NotImplementedError
-
-
-@app.put("/tasks/<int:task_id>")
-def replace_task(task_id):
-    """PUT /tasks/<id> — полная замена ресурса.
-
-    Как POST, но: 404 если нет задачи; validate_title(..., exclude_id=task_id);
-    отсутствующий done -> False.
-    """
-    # TODO: реализовать по ТЗ п. 4.5
-    raise NotImplementedError
-
-
-@app.patch("/tasks/<int:task_id>")
-def update_task(task_id):
-    """PATCH /tasks/<id> — частичное обновление.
-
-    Обновляются только переданные поля (title и/или done).
-    """
-    # TODO: реализовать по ТЗ п. 4.6
-    raise NotImplementedError
-
-
-@app.delete("/tasks/<int:task_id>")
-def delete_task(task_id):
-    """DELETE /tasks/<id> — удалить задачу. 204 или 404."""
-    # TODO: реализовать по ТЗ п. 4.7
-    raise NotImplementedError
-
-
-@app.get("/")
-def index():
-    """GET / — описание сервиса."""
-    # TODO: {"service": "tasks-api", "seed": len(tasks), "endpoints": [...]}
-    raise NotImplementedError
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
-```
-
-## 7. Критерии готовности
-
-Все эндпоинты возвращают коды и тела, описанные в разделе 4. 
-Поле `title` валидируется одинаково в `POST`, `PUT`, `PATCH` (через общую `validate_title` или эквивалентную логику). 
-Дубликаты `title` дают `409` с учётом нормализации; 
-при `PUT` и `PATCH` собственное название дубликатом не считается. `GET /tasks` поддерживает все шесть query-параметров и возвращает объект `{items, page, per_page, total, pages}`. 
-`DELETE` возвращает `204` с пустым телом, повторный — `404`. `GET /` возвращает `service`, `seed`, `endpoints`. 
-При старте в хранилище 5 задач, `next_id = 6`.
 
 [Скачать стенд для этой работы](https://github.com/pascal65536/praxis_tmp/tree/main/praxis/lab5)
