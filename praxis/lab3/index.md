@@ -10,10 +10,12 @@
 
 Основная функция в файле `student.py`:
 
+{% raw %}
 ```python
 def solve(text):
     ...
 ```
+{% endraw %}
 
 Функция получает всё содержимое журнала в виде строки и возвращает словарь со статистикой. Она не должна печатать отчёт или самостоятельно открывать файлы.
 
@@ -21,9 +23,11 @@ def solve(text):
 
 Запуск программы:
 
+{% raw %}
 ```bash
 python student.py data/sample.log report.json
 ```
+{% endraw %}
 
 После выполнения должен быть создан файл `report.json`.
 
@@ -33,9 +37,11 @@ python student.py data/sample.log report.json
 
 ## Запись из четырёх полей
 
+{% raw %}
 ```text
 2026-10-18 12:00:01,000;vkkbot_100;INFO;🔄 Задача search для 101
 ```
+{% endraw %}
 
 Поля:
 
@@ -46,9 +52,11 @@ python student.py data/sample.log report.json
 
 ## Запись из шести полей
 
+{% raw %}
 ```text
 2026-10-18 12:00:00,500;vkkbot_100;INFO;REQUEST;101;8б
 ```
+{% endraw %}
 
 Дополнительно присутствуют:
 
@@ -91,9 +99,11 @@ python student.py data/sample.log report.json
 
 Каждый элемент `top_users` — словарь:
 
+{% raw %}
 ```python
 {"user_id": "101", "count": 5}
 ```
+{% endraw %}
 
 Правила:
 
@@ -108,12 +118,14 @@ python student.py data/sample.log report.json
 
 Словарь `commands` всегда содержит два ключа:
 
+{% raw %}
 ```python
 {
     "start": 0,
     "stop": 0,
 }
 ```
+{% endraw %}
 
 `start` увеличивается только для `REQUEST` с полезной нагрузкой `▶️ Запуск бота`, а `stop` — только для `REQUEST` с полезной нагрузкой `⏹️ Остановка бота`.
 
@@ -121,15 +133,19 @@ python student.py data/sample.log report.json
 
 Начало задачи имеет вид:
 
+{% raw %}
 ```text
 🔄 Задача search для 101
 ```
+{% endraw %}
 
 Общий шаблон:
 
+{% raw %}
 ```text
 🔄 Задача <тип> для <user_id>
 ```
+{% endraw %}
 
 Словарь `tasks` содержит количество таких событий по типам задач. Завершение задачи не увеличивает этот счётчик. Если в журнале нет запусков задач, результат — пустой словарь `{}`.
 
@@ -151,6 +167,7 @@ python student.py data/sample.log report.json
 
 Основные значения:
 
+{% raw %}
 ```json
 {
   "total_lines": 29,
@@ -170,6 +187,7 @@ python student.py data/sample.log report.json
   }
 }
 ```
+{% endraw %}
 
 Полный пример также содержит `top_users`.
 
@@ -177,24 +195,30 @@ python student.py data/sample.log report.json
 
 Реализуйте функцию:
 
+{% raw %}
 ```python
 def analyze_task_durations(text):
     ...
 ```
+{% endraw %}
 
 Она возвращает статистику только по завершённым задачам.
 
 Начало задачи:
 
+{% raw %}
 ```text
 🔄 Задача search для 101
 ```
+{% endraw %}
 
 Завершение:
 
+{% raw %}
 ```text
 ✅ Задача search выполнена для 101
 ```
+{% endraw %}
 
 ## Правила сопоставления
 
@@ -209,6 +233,7 @@ def analyze_task_durations(text):
 
 Формат результата:
 
+{% raw %}
 ```json
 {
   "search": {
@@ -217,23 +242,28 @@ def analyze_task_durations(text):
   }
 }
 ```
+{% endraw %}
 
 # 5. Дополнительная часть 2. Рейтинг классов
 
 Реализуйте функцию:
 
+{% raw %}
 ```python
 def top_classes(text, limit=10):
     ...
 ```
+{% endraw %}
 
 Она анализирует полезную нагрузку событий `REQUEST` и находит запросы вида:
 
+{% raw %}
 ```text
 8б
 10 Т
 5В
 ```
+{% endraw %}
 
 Правила:
 
@@ -248,9 +278,11 @@ def top_classes(text, limit=10):
 
 Элемент результата:
 
+{% raw %}
 ```python
 {"class": "10т", "count": 3}
 ```
+{% endraw %}
 
 # 6. Контрольные значения для полного журнала
 
@@ -272,6 +304,7 @@ def top_classes(text, limit=10):
 
 Запуски задач:
 
+{% raw %}
 ```text
 search — 1021
 bell_status — 756
@@ -279,12 +312,15 @@ student — 12
 teacher — 11
 bell — 5
 ```
+{% endraw %}
 
 Количество обращений у первых десяти пользователей:
 
+{% raw %}
 ```text
 68, 66, 64, 64, 60, 59, 47, 47, 46, 45
 ```
+{% endraw %}
 
 ## Дополнительная часть 1
 
@@ -300,6 +336,7 @@ bell — 5
 
 Первые шесть записей рейтинга классов:
 
+{% raw %}
 ```text
 8б — 459
 6б — 447
@@ -308,19 +345,24 @@ bell — 5
 7б — 341
 10т — 336
 ```
+{% endraw %}
 
 # 7. Автоматическая проверка
 
 Обязательная часть и файловый интерфейс:
 
+{% raw %}
 ```bash
 python check.py
 ```
+{% endraw %}
 
 Обязательная и обе дополнительные части:
 
+{% raw %}
 ```bash
 python check.py --advanced
 ```
+{% endraw %}
 
 Проверка использует только стандартную библиотеку Python. Подробная инструкция для Windows находится в `README.md`.
