@@ -169,4 +169,5 @@ settings.py
 .git/objects/pack/*.pack
 *.pack
 
-
+collect_files.py
+collected_files.txt
