@@ -1,5 +1,4 @@
 remote_theme: pages-themes/midnight
-color_scheme: light
 heading_anchors: true
 permalink: pretty
 
@@ -10,17 +9,7 @@ plugins:
 exclude:
   - tasks/
 
-title: "TMP"
-description: "TMP is my life."
 lang: ru
 
 nav_enabled: true
 search_enabled: true
-
-callouts:
-  warning:
-    title: "Внимание"
-    color: yellow
-  important:
-    title: "Важно"
-    color: blue
