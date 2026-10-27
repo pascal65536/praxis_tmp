@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "input": "Программирование 3|Иванов 5|Сергеев 4|Семёнов 3|Математика 4|Иванов 5|Сергеев 4|Семёнов 3|Антонов 2|Черчение 6|Сергеев 4|Семёнов 3|Антонов 2|Петров 4|Иванов 5|Панов 2",
+        "output": "Программирование|Иванов Сергеев Семёнов Петров Антонов Панов"
+    },
+    {
+        "id": 2,
+        "input": "Физика 4|Кузнецов 5|Морозов 3|Соколов 4|Васильев 5|Химия 3|Кузнецов 4|Морозов 2|Соколов 5|Биология 5|Васильченко 3|Кузнецов 4|Морозов 3|Соколов 5|Васильев 4|Английский 4|Кузнецов 5|Морозов 4|Соколов 3|Васильев 5",
+        "output": "Химия|Кузнецов Соколов Васильев Морозов Васильченко"
+    },
+    {
+        "id": 3,
+        "input": "Programming 3|Smith 5|Johnson 4|Brown 3|Mathematics 4|Smith 5|Johnson 4|Brown 3|Taylor 2|Calculus 6|Johnson 4|Brown 3|Taylor 2|Wilson 4|Smith 5|Clark 2|Physics 4|Adams 5|Lee 3|Walker 4|Hall 5|Chemistry 3|Adams 4|Lee 2|Walker 5|Biology 5|Adams 4|Lee 3|Walker 5|Hall 4|White 3|English 4|Adams 5|Lee 4|Walker 3|Hall 5",
+        "output": "Chemistry|Adams Walker Smith Hall Lee Johnson Brown Wilson Taylor White Clark"
+    }    
+
+]
