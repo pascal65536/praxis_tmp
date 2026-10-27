@@ -18,24 +18,46 @@ try:
 
     # ---------- 1.5. Подготовка: создаём 25 доп. задач для пагинации/сортировки ----------
     extra_titles = [
-        "Alpha", "Bravo", "Charlie", "Delta", "Echo",
-        "Foxtrot", "Golf", "Hotel", "India", "Juliet",
-        "Kilo", "Lima", "Mike", "November", "Oscar",
-        "Papa", "Quebec", "Romeo", "Sierra", "Tango",
-        "Uniform", "Victor", "Whiskey", "X-ray", "Yankee",
+        "Alpha",
+        "Bravo",
+        "Charlie",
+        "Delta",
+        "Echo",
+        "Foxtrot",
+        "Golf",
+        "Hotel",
+        "India",
+        "Juliet",
+        "Kilo",
+        "Lima",
+        "Mike",
+        "November",
+        "Oscar",
+        "Papa",
+        "Quebec",
+        "Romeo",
+        "Sierra",
+        "Tango",
+        "Uniform",
+        "Victor",
+        "Whiskey",
+        "X-ray",
+        "Yankee",
     ]
     for i, title in enumerate(extra_titles):
-        done = (i % 3 == 0)  # каждая третья — выполненная
-        r = requests.post("http://localhost:5000/tasks",
-                          json={"title": title, "done": done})
+        done = i % 3 == 0  # каждая третья — выполненная
+        r = requests.post(
+            "http://localhost:5000/tasks", json={"title": title, "done": done}
+        )
         assert r.status_code == 201, f"подготовка: не удалось создать {title}"
         created_ids.append(r.json()["id"])
 
     # обновляем снимок после подготовки
     r = requests.get("http://localhost:5000/tasks", params={"per_page": 100})
     all_ids = {t["id"] for t in r.json()["items"]}
-    assert len(all_ids) == len(ids_before) + len(extra_titles), \
-        "ожидалось, что все доп. задачи созданы"
+    assert len(all_ids) == len(ids_before) + len(
+        extra_titles
+    ), "ожидалось, что все доп. задачи созданы"
     print(f"1.5. подготовка: создано {len(extra_titles)} задач ... ок")
 
     # ---------- 2. Список по умолчанию: обёртка с мета-информацией ----------
@@ -58,10 +80,18 @@ try:
     assert len(r.json()["items"]) == 5
 
     # страницы не должны пересекаться
-    page1_ids = {t["id"] for t in requests.get(
-        "http://localhost:5000/tasks", params={"page": 1, "per_page": 5}).json()["items"]}
-    page2_ids = {t["id"] for t in requests.get(
-        "http://localhost:5000/tasks", params={"page": 2, "per_page": 5}).json()["items"]}
+    page1_ids = {
+        t["id"]
+        for t in requests.get(
+            "http://localhost:5000/tasks", params={"page": 1, "per_page": 5}
+        ).json()["items"]
+    }
+    page2_ids = {
+        t["id"]
+        for t in requests.get(
+            "http://localhost:5000/tasks", params={"page": 2, "per_page": 5}
+        ).json()["items"]
+    }
     assert not (page1_ids & page2_ids), "страницы не должны пересекаться"
 
     # за пределами — не ошибка, а пусто
@@ -86,37 +116,51 @@ try:
 
     # ---------- 4. Сортировка: sort + order ----------
     # title asc
-    r = requests.get("http://localhost:5000/tasks",
-                     params={"sort": "title", "order": "asc", "per_page": 100})
+    r = requests.get(
+        "http://localhost:5000/tasks",
+        params={"sort": "title", "order": "asc", "per_page": 100},
+    )
     assert r.status_code == 200
     titles = [t["title"] for t in r.json()["items"]]
     assert titles == sorted(titles), "список не отсортирован по title asc"
 
     # title desc
-    r = requests.get("http://localhost:5000/tasks",
-                     params={"sort": "title", "order": "desc", "per_page": 100})
+    r = requests.get(
+        "http://localhost:5000/tasks",
+        params={"sort": "title", "order": "desc", "per_page": 100},
+    )
     titles_desc = [t["title"] for t in r.json()["items"]]
-    assert titles_desc == sorted(titles_desc, reverse=True), \
-        "список не отсортирован по title desc"
+    assert titles_desc == sorted(
+        titles_desc, reverse=True
+    ), "список не отсортирован по title desc"
 
     # id asc
-    r = requests.get("http://localhost:5000/tasks",
-                     params={"sort": "id", "order": "asc", "per_page": 100})
+    r = requests.get(
+        "http://localhost:5000/tasks",
+        params={"sort": "id", "order": "asc", "per_page": 100},
+    )
     ids_asc = [t["id"] for t in r.json()["items"]]
     assert ids_asc == sorted(ids_asc), "список не отсортирован по id asc"
 
     # id desc
-    r = requests.get("http://localhost:5000/tasks",
-                     params={"sort": "id", "order": "desc", "per_page": 100})
+    r = requests.get(
+        "http://localhost:5000/tasks",
+        params={"sort": "id", "order": "desc", "per_page": 100},
+    )
     ids_desc = [t["id"] for t in r.json()["items"]]
-    assert ids_desc == sorted(ids_desc, reverse=True), "список не отсортирован по id desc"
+    assert ids_desc == sorted(
+        ids_desc, reverse=True
+    ), "список не отсортирован по id desc"
 
     # created_at desc — самая свежая задача должна быть первой
-    r = requests.get("http://localhost:5000/tasks",
-                     params={"sort": "created_at", "order": "desc", "per_page": 1})
+    r = requests.get(
+        "http://localhost:5000/tasks",
+        params={"sort": "created_at", "order": "desc", "per_page": 1},
+    )
     first_id = r.json()["items"][0]["id"]
-    assert first_id == max(all_ids), \
-        "последняя созданная должна быть первой в desc по created_at"
+    assert first_id == max(
+        all_ids
+    ), "последняя созданная должна быть первой в desc по created_at"
 
     # невалидные значения
     r = requests.get("http://localhost:5000/tasks", params={"sort": "foo"})
@@ -127,26 +171,31 @@ try:
 
     # ---------- 5. Фильтры: done и поиск q ----------
     # done=true
-    r = requests.get("http://localhost:5000/tasks",
-                     params={"done": "true", "per_page": 100})
+    r = requests.get(
+        "http://localhost:5000/tasks", params={"done": "true", "per_page": 100}
+    )
     assert r.status_code == 200
     assert all(t["done"] for t in r.json()["items"])
     assert r.json()["total"] > 0
     assert r.json()["total"] < len(all_ids), "в seed+extra есть и выполненные, и нет"
 
     # done=false
-    r = requests.get("http://localhost:5000/tasks",
-                     params={"done": "false", "per_page": 100})
+    r = requests.get(
+        "http://localhost:5000/tasks", params={"done": "false", "per_page": 100}
+    )
     assert r.status_code == 200
     assert all(not t["done"] for t in r.json()["items"])
 
     # сумма done=true и done=false должна давать total
-    total_done = requests.get("http://localhost:5000/tasks",
-                              params={"done": "true", "per_page": 100}).json()["total"]
-    total_undone = requests.get("http://localhost:5000/tasks",
-                                params={"done": "false", "per_page": 100}).json()["total"]
-    assert total_done + total_undone == len(all_ids), \
-        "сумма done=true и done=false должна равняться total"
+    total_done = requests.get(
+        "http://localhost:5000/tasks", params={"done": "true", "per_page": 100}
+    ).json()["total"]
+    total_undone = requests.get(
+        "http://localhost:5000/tasks", params={"done": "false", "per_page": 100}
+    ).json()["total"]
+    assert total_done + total_undone == len(
+        all_ids
+    ), "сумма done=true и done=false должна равняться total"
 
     # поиск q (регистронезависимо)
     r = requests.get("http://localhost:5000/tasks", params={"q": "alpha"})
@@ -163,9 +212,10 @@ try:
     assert "молоко" in r.json()["items"][0]["title"].lower()
 
     # комбинация фильтров: done=true + сортировка
-    r = requests.get("http://localhost:5000/tasks",
-                     params={"done": "true", "sort": "title", "order": "asc",
-                             "per_page": 100})
+    r = requests.get(
+        "http://localhost:5000/tasks",
+        params={"done": "true", "sort": "title", "order": "asc", "per_page": 100},
+    )
     assert r.status_code == 200
     filt_titles = [t["title"] for t in r.json()["items"]]
     assert filt_titles == sorted(filt_titles), "фильтр+сортировка работают вместе"
@@ -186,7 +236,9 @@ try:
     print("6. создание ... ок")
 
     # ---------- 7. Контроль создания: дубликаты и валидация ----------
-    r = requests.post("http://localhost:5000/tasks", json={"title": "  Новая   задача "})
+    r = requests.post(
+        "http://localhost:5000/tasks", json={"title": "  Новая   задача "}
+    )
     assert r.status_code == 409
     assert "error" in r.json()
 
@@ -199,8 +251,11 @@ try:
     r = requests.post("http://localhost:5000/tasks", json={"title": LONG_TITLE})
     assert r.status_code == 422
 
-    r = requests.post("http://localhost:5000/tasks", data="not json",
-                      headers={"Content-Type": "application/json"})
+    r = requests.post(
+        "http://localhost:5000/tasks",
+        data="not json",
+        headers={"Content-Type": "application/json"},
+    )
     assert r.status_code == 400
     print("7. контроль создания ... ок")
 
@@ -217,8 +272,10 @@ try:
     print("8. чтение ... ок")
 
     # ---------- 9. Обновление: PUT заменяет, PATCH — частично ----------
-    r = requests.put("http://localhost:5000/tasks/" + str(tid),
-                     json={"title": "Новая задача", "done": True})
+    r = requests.put(
+        "http://localhost:5000/tasks/" + str(tid),
+        json={"title": "Новая задача", "done": True},
+    )
     assert r.status_code == 200, f"PUT -> {r.status_code}"
     assert r.json()["done"] is True
 
@@ -230,7 +287,9 @@ try:
     assert r.json()["done"] is False
     assert r.json()["title"] == "Новая задача"
 
-    r = requests.patch("http://localhost:5000/tasks/" + str(tid), json={"title": "Alpha"})
+    r = requests.patch(
+        "http://localhost:5000/tasks/" + str(tid), json={"title": "Alpha"}
+    )
     assert r.status_code == 409
 
     r = requests.patch("http://localhost:5000/tasks/" + str(tid), json={"title": ""})
@@ -245,8 +304,12 @@ try:
     r = requests.delete("http://localhost:5000/tasks/" + str(tid))
     assert r.status_code == 404
 
-    a = requests.post("http://localhost:5000/tasks", json={"title": "Задача А"}).json()["id"]
-    b = requests.post("http://localhost:5000/tasks", json={"title": "Задача Б"}).json()["id"]
+    a = requests.post("http://localhost:5000/tasks", json={"title": "Задача А"}).json()[
+        "id"
+    ]
+    b = requests.post("http://localhost:5000/tasks", json={"title": "Задача Б"}).json()[
+        "id"
+    ]
     created_ids += [a, b]
     assert b > a, "id не должны переиспользоваться после удаления"
     print("10. удаление ... ок")

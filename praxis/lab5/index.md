@@ -89,15 +89,12 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 (.venv) user@machine:~/lab5$
 ```
 
-
 Это главный признак. И ещё одна проверка — какой Python теперь используется:
-
 
 ```bash
 which python      # Linux / macOS
 where python      # Windows
 ```
-
 
 Путь должен вести внутрь `.venv` (например, `.../lab5/.venv/bin/python`). 
 
@@ -106,11 +103,9 @@ where python      # Windows
 
 Убедитесь, что префикс `(.venv)` на месте (иначе пакет уйдёт в систему — не то, что нам нужно). В linux-подобных системах это запрещено. Устанавливаем Flask:
 
-
 ```bash
 pip install flask requests
 ```
-
 
 Пока `pip` качает и распаковывает, вы увидите что-то вроде:
 
@@ -128,14 +123,11 @@ Successfully installed flask-3.x.x jinja2-... werkzeug-...
 
 Два быстрых способа:
 
-
 ```bash
 pip list
 ```
 
-
 Вы увидите список установленных пакетов и их версии.
-
 
 ```cmd
 Package            Version
@@ -155,26 +147,20 @@ urllib3            2.8.0
 Werkzeug           3.1.9
 ```
 
-
 Или в интерактивной консоли Python
-
 
 ```cmd
 python
 ```
-
-
 
 ```python
 import flask
 print(flask.__version__)
 ```
 
-
 Должна напечататься версия, например `3.1.3`. Если версия появилась — установка прошла успешно. 
 
 Через некоторое время этот способ перестанет работать, по этому запоминаем новый способ, через метаданные:
-
 
 ```python
 import importlib.metadata
@@ -182,19 +168,15 @@ print(importlib.metadata.version("flask"))
 # Вывод 3.1.3
 ```
 
-
 # requirements.txt
 
 Чтобы проект можно было легко воспроизвести на другой машине, сохраним список пакетов в файл:
-
 
 ```bash
 pip freeze > requirements.txt
 ```
 
-
 Откройте `requirements.txt` — там будет примерно:
-
 
 ```text
 blinker==1.9.0
@@ -211,7 +193,6 @@ urllib3==2.8.0
 Werkzeug==3.1.9
 ```
 
-
 **Зачем это:** на другой машине достаточно будет набрать `pip install -r requirements.txt` — и там установятся  те же самые версии. Это стандартная практика, и ваш `requirements.txt` — часть «чистоты» репозитория.
 # .gitignore
 
@@ -227,7 +208,6 @@ __pycache__/
 # Hello, Flask!
 
 Создадим небольшое приложение - трекер задач. Создайте в рабочей папке файл `demo.py` и наберите (или скопируйте) следующее:
-
 
 ```python
 from flask import Flask, request, jsonify
@@ -311,7 +291,6 @@ if __name__ == "__main__":
 python demo.py
 ```
 
-
 **Что вы должны увидеть в консоли:**
 
 ```
@@ -328,7 +307,6 @@ python demo.py
 
 В VSCode запустите:
 
-
 ```bash
 python -m ensurepip --
 python -m pip --version
@@ -336,8 +314,7 @@ python -m pip --version
 
 ## **Чтение полного списка**
 
-GET
-
+### GET
 
 ```bash
 import requests
@@ -347,7 +324,6 @@ response = requests.get(url)
 print('status_code =', response.status_code)
 print('json =', response.json())
 ```
-
 
 **Ожидаемый вывод:**
 
@@ -366,7 +342,7 @@ json = [{'done': False, 'id': 1, 'title': 'Выучить REST'}, {'done': False
 
 ## **Чтение конкретной записи**
 
-GET
+### GET
 
 
 ```python
@@ -395,7 +371,7 @@ json = {'done': False, 'id': 2, 'title': 'Разобраться с Flask'}
 
 ## **Создание**
 
-POST
+### POST
 
 
 ```python
@@ -427,7 +403,7 @@ json = {'done': False, 'id': 4, 'title': 'Первая задача'}
 
 ## **Частичное обновление**
 
-PATCH
+### PATCH
 
 
 ```python
@@ -487,7 +463,7 @@ headers = {'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, def
 
 ## **Удаление**
 
-DELETE
+### DELETE
 
 
 ```python
@@ -543,7 +519,7 @@ json = {'error': 'не найдено'}
 ```
 
 
-**Обратите внимание:** 404 вернул **наш код** (функция `get_task` не нашла задачу), а не Flask — тело `{"error": "не найдено"}` наше. Сравните с `curl -i http://localhost:5000/tasks/abc` — там тоже 404, но с HTML-страницей Flask, потому что маршрут не совпал и до нашей функции дело не дошло. **Запомните эту разницу:** 404 «ресурс не найден» и 404 «такого маршрута нет» — разные вещи, хотя код одинаковый.
+**Обратите внимание:** 404 вернул, потому что наш код (функция `get_task` не нашла задачу), а не Flask — тело `{"error": "не найдено"}` наше. Сравните с `curl -i http://localhost:5000/tasks/abc` — там тоже 404, но с HTML-страницей Flask, потому что маршрут не совпал и до нашей функции дело не дошло. **Запомните эту разницу:** 404 «ресурс не найден» и 404 «такого маршрута нет» — разные вещи, хотя код одинаковый.
 
 ![](pic/20261019095854.png)
 
@@ -755,6 +731,7 @@ git check-ignore -v .venv/ __pycache__/    # правило .gitignore сраб�
 - `created_at` — string в формате ISO 8601 (UTC), генерируется автоматически, например `2026-10-19T10:18:26.123456+00:00`.
 
 **Нормализация `title` для сравнения:** схлопнуть все пробельные последовательности в один пробел и привести к нижнему регистру.
+
 ## 3. Начальные данные (seed)
 
 При старте приложения хранилище заполняется пятью демонстрационными задачами:

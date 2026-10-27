@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!-- 1. Вывод переменных -->
+    <title>{{ title }}</title>
+</head>
+<body>
+
+    <h1>{{ title }}</h1>
+    <p>Привет, {{ username }}!</p>
+
+    <hr>
+
+    <!-- 2. Условные конструкции (if/elif/else) -->
+    <h2>Проверка статуса пользователя:</h2>
+    {% if is_verified %}
+        <p style="color: green;">✅ Пользователь верифицирован.</p>
+    {% else %}
+        <p style="color: red;">❌ Пользователь не верифицирован.</p>
+    {% endif %}
+
+    <hr>
+
+    <!-- 3. Циклы (for) и объект loop -->
+    <h2>Перебор списка с использованием свойств loop:</h2>
+    <ul>
+        {% for item in items %}
+            {% if loop.first %}
+                <li><strong>ПЕРВЫЙ: {{ item }}</strong></li>
+            {% elif loop.last %}
+                <li><em>ПОСЛЕДНИЙ: {{ item }}</em></li>
+            {% else %}
+                <!-- loop.index начинается с 1 -->
+                <li>Элемент {{ loop.index }} из {{ loop.length }}: {{ item }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <!-- 4. Фильтры и Информационная безопасность (XSS) -->
+    <h2>Фильтры и защита от XSS:</h2>
+    
+    <!-- Встроенные фильтры для коллекций -->
+    <p>Первый элемент списка (фильтр first): <b>{{ items|first }}</b></p>
+    <p>Последний элемент списка (фильтр last): <b>{{ items|last }}</b></p>
+    
+    <!-- Фильтры для строк -->
+    <p>Имя в верхнем регистре (фильтр upper): {{ username|upper }}</p>
+
+    <!-- InfoSec: Демонстрация автоэскейпинга -->
+    <p><b>Безопасный вывод (автоэскейпинг включен):</b><br>
+       {{ text }}<br>
+       <i>(Jinja2 заменил теги на HTML-сущности, JS не выполнится)</i>
+    </p>
+
+    <p><b>Опасный вывод (фильтр safe):</b><br>
+       {{ text|safe }}<br>
+       <i style="color: red;">(ВНИМАНИЕ: Фильтр safe отключает экранирование. Если text - это пользовательский ввод, произойдет XSS-атака!)</i>
+    </p>
+
+    <hr>
+
+    <!-- 5. Макросы (переиспользуемые блоки) -->
+    <h2>Использование макросов:</h2>
+    
+    <!-- Объявление макроса -->
+    {% macro render_item_card(item_name, index) %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin: 5px 0; background: #f9f9f9;">
+            Карточка №{{ index }}: <b>{{ item_name }}</b>
+        </div>
+    {% endmacro %}
+
+    <!-- Вызов макроса в цикле -->
+    {% for item in items %}
+        {{ render_item_card(item, loop.index) }}
+    {% endfor %}
+
+    <hr>
+
+    <!-- 6. Инициализация переменных (set и namespace) -->
+    <h2>Локальные переменные в шаблоне:</h2>
+    
+    <!-- Обычная переменная -->
+    {% set custom_status = "Шаблонизатор работает!" %}
+    <p>{{ custom_status }}</p>
+
+    <!-- Пространство имен (namespace) для сохранения состояния после цикла -->
+    {% set ns = namespace(found_banana=False) %}
+    {% for item in items %}
+        {% if item == "банан " %}
+            {% set ns.found_banana = True %}
+        {% endif %}
+    {% endfor %}
+    
+    <p>Удалось ли найти банан в цикле? <b>{{ ns.found_banana }}</b></p>
+
+    <hr>
+
+    <!-- 7. Генерация ссылок (url_for) -->
+    <h2>Навигация:</h2>
+    <a href="{{ url_for('index') }}">Вернуться на главную (через url_for)</a>
+
+</body>
+</html>
