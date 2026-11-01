@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "id": 1,
+      "code": "modern_print('Hello?')",
+      "expected": "Hello?\n"
+    },
+    {
+      "id": 2,
+      "code": "modern_print('Hello!')",
+      "expected": "Hello!\n"
+    }
+  ]
+}
