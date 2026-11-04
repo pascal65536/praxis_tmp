@@ -1,0 +1,88 @@
+{
+  "tests": [
+    {
+      "id": 1,
+      "description": "GET /students - получить весь список",
+      "setup": "i1.py",
+      "expected_file": "o1.py"
+    },
+    {
+      "id": 2,
+      "description": "GET /students?sort=name&order=asc - сортировка по имени (возрастание)",
+      "setup": "i2.py",
+      "expected_file": "o2.py"
+    },
+    {
+      "id": 3,
+      "description": "GET /students?sort=name&order=desc - сортировка по имени (убывание)",
+      "setup": "i3.py",
+      "expected_file": "o3.py"
+    },
+    {
+      "id": 4,
+      "description": "GET /students?sort=avg&order=asc - сортировка по среднему баллу",
+      "setup": "i4.py",
+      "expected_file": "o4.py"
+    },
+    {
+      "id": 5,
+      "description": "GET /students?sort=missed&order=desc - сортировка по пропускам (убывание)",
+      "setup": "i5.py",
+      "expected_file": "o5.py"
+    },
+    {
+      "id": 6,
+      "description": "GET /students?filter=Иванов - фильтрация по ФИО",
+      "setup": "i6.py",
+      "expected_file": "o6.py"
+    },
+    {
+      "id": 7,
+      "description": "GET /students?min_avg=4.5 - фильтрация по среднему баллу",
+      "setup": "i7.py",
+      "expected_file": "o7.py"
+    },
+    {
+      "id": 8,
+      "description": "GET /students?max_missed=2 - фильтрация по пропускам",
+      "setup": "i8.py",
+      "expected_file": "o8.py"
+    },
+    {
+      "id": 9,
+      "description": "GET /students?limit=10&offset=0 - пагинация (первые 10)",
+      "setup": "i9.py",
+      "expected_file": "o9.py"
+    },
+    {
+      "id": 10,
+      "description": "GET /students?limit=6&offset=10 - пагинация (6 записей с 11-й)",
+      "setup": "i10.py",
+      "expected_file": "o10.py"
+    },
+    {
+      "id": 11,
+      "description": "GET /students?limit=2 - пагинация (2 записи с 1-й)",
+      "setup": "i11.py",
+      "expected_file": "o11.py"
+    },
+    {
+      "id": 12,
+      "description": "GET /students?limit=2&offset=20 - пагинация (2 записи с 21-й)",
+      "setup": "i12.py",
+      "expected_file": "o12.py"
+    },
+    {
+      "id": 13,
+      "description": "GET /students?filter='ова' - фильтрация по подстроке",
+      "setup": "i13.py",
+      "expected_file": "o13.py"
+    },
+    {
+      "id": 14,
+      "description": "GET /students?filter='ова'&sort='name' - фильтрация по подстроке, сортировка по имени",
+      "setup": "i14.py",
+      "expected_file": "o14.py"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+[{'full_name': 'Иванов Иван Иванович', 'grades': [5, 4, 4, 5, 3], 'missed_classes': 2}, {'full_name': 'Петров Пётр Петрович', 'grades': [4, 4, 3, 4, 4], 'missed_classes': 1}]

@@ -1,0 +1,1 @@
+ret = solve(a="7", b="0", op="mult")

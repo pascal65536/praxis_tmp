@@ -1,0 +1,1 @@
+ret = solve(min_avg=4.5)

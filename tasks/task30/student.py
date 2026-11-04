@@ -1,2 +1,13 @@
-def modern_print(text):
-    print(text)
+def calc(names, grades):
+    """
+    Возвращает список словарей {Имя: средний балл}
+    """
+    return []
+
+
+def calc_user_dct(users):
+    """
+    Возвращает словарь студента с максимальным средним баллом,
+    добавляя ключ 'avg'
+    """
+    return {}

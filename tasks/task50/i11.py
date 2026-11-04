@@ -1,0 +1,1 @@
+ret = solve(a="12", b="bad", op="mul")

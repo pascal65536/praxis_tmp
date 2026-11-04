@@ -1,0 +1,70 @@
+{
+  "tests": [
+    {
+      "id": 1,
+      "description": "add: 10 + 12 = 22",
+      "setup": "i1.py",
+      "expected_file": "o1.py"
+    },
+    {
+      "id": 2,
+      "description": "add: отрицательные числа",
+      "setup": "i2.py",
+      "expected_file": "o2.py"
+    },
+    {
+      "id": 3,
+      "description": "mult: 3 * 4 = 12",
+      "setup": "i3.py",
+      "expected_file": "o3.py"
+    },
+    {
+      "id": 4,
+      "description": "mult: с нулём",
+      "setup": "i4.py",
+      "expected_file": "o4.py"
+    },
+    {
+      "id": 5,
+      "description": "diff: 10 - 3 = 7",
+      "setup": "i5.py",
+      "expected_file": "o5.py"
+    },
+    {
+      "id": 6,
+      "description": "diff: результат отрицательный",
+      "setup": "i6.py",
+      "expected_file": "o6.py"
+    },
+    {
+      "id": 7,
+      "description": "sub (деление): 10 / 2 = 5.0",
+      "setup": "i7.py",
+      "expected_file": "o7.py"
+    },
+    {
+      "id": 8,
+      "description": "sub (деление) на ноль",
+      "setup": "i8.py",
+      "expected_file": "o8.py"
+    },
+    {
+      "id": 9,
+      "description": "неизвестная операция",
+      "setup": "i9.py",
+      "expected_file": "o9.py"
+    },
+    {
+      "id": 10,
+      "description": "нечисловые операнды",
+      "setup": "i10.py",
+      "expected_file": "o10.py"
+    },
+    {
+      "id": 11,
+      "description": "нечисловые операнды",
+      "setup": "i11.py",
+      "expected_file": "o11.py"
+    }
+  ]
+}

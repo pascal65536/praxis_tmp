@@ -2,13 +2,81 @@
   "tests": [
     {
       "id": 1,
-      "code": "modern_print('Hello?')",
-      "expected": "Hello?\n"
+      "description": "Тест calc: базовый контрольный набор из 5 студентов (zip, средний балл)",
+      "setup": "i1.py",
+      "expected_file": "o1.py"
     },
     {
       "id": 2,
-      "code": "modern_print('Hello!')",
-      "expected": "Hello!\n"
+      "description": "Тест calc: один студент — граничный случай длины, нецелый средний балл",
+      "setup": "i2.py",
+      "expected_file": "o2.py"
+    },
+    {
+      "id": 3,
+      "description": "Тест calc: пустые списки name и grade — zip даёт пустой результат",
+      "setup": "i3.py",
+      "expected_file": "o3.py"
+    },
+    {
+      "id": 4,
+      "description": "Тест calc: целые средние баллы (проверка float vs int в diff)",
+      "setup": "i4.py",
+      "expected_file": "o4.py"
+    },
+    {
+      "id": 5,
+      "description": "Тест calc: периодические дроби — точность сравнения float (rel_tol)",
+      "setup": "i5.py",
+      "expected_file": "o5.py"
+    },
+    {
+      "id": 6,
+      "description": "Тест calc: дублирующиеся имена — отдельные словари, порядок сохраняется",
+      "setup": "i6.py",
+      "expected_file": "o6.py"
+    },
+    {
+      "id": 7,
+      "description": "Тест calc: разная длина оценок у студентов — средний по своей длине",
+      "setup": "i7.py",
+      "expected_file": "o7.py"
+    },
+    {
+      "id": 8,
+      "description": "Тест calc: несогласованная длина name и grade — лишние имена отбрасываются (zip)",
+      "setup": "i8.py",
+      "expected_file": "o8.py"
+    },
+    {
+      "id": 9,
+      "description": "Тест calc: крайние значения оценок 0 и 100 — нулевой, максимальный и средний 50",
+      "setup": "i9.py",
+      "expected_file": "o9.py"
+    },
+    {
+      "id": 10,
+      "description": "Тест calc: кириллица с пробелами, дефисами и буквой «ё» в ключах",
+      "setup": "i10.py",
+      "expected_file": "o10.py"
+    },
+    {
+      "id": 11,
+      "description": "Тест calc: 20 студентов — стресс-тест порядка и суммы",
+      "setup": "i11.py",
+      "expected_file": "o11.py"
+    },
+    {
+      "id": 12,
+      "description": "Тест calc: дробные оценки (float) во входных данных",
+      "setup": "i12.py",
+      "expected_file": "o12.py"
+    },
+    {
+      "id": 13,
+      "description": "Тест calc: отрицательные и смешанные оценки — отрицательный и нулевой средний",
+      "setup": "i13.py",
+      "expected_file": "o13.py"
     }
   ]
 }
