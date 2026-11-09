@@ -178,7 +178,7 @@ print(importlib.metadata.version("flask"))
 pip freeze > requirements.txt
 ```
 
-Откройте `requirements.txt` — там будет примерно:
+Откройте `requirements.txt` — там будет примерно следующее:
 
 ```text
 blinker==1.9.0
