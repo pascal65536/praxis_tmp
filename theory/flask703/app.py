@@ -5,9 +5,12 @@ app = Flask(__name__)
 
 @app.route("/search")
 def search():
-    query = request.args.get("q")
+    query = request.args.get("q", 'unknown')
     if query:
-        return f"Результаты поиска для: {query}"
+        return f"""
+        <a href='https://www.google.com/search?q={query}'>https://www.google.com/search?q={query}</a>
+        """
+        # return f"Результаты поиска для: {query}"
     else:
         return "Введите поисковый запрос"
 
