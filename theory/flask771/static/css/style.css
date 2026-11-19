@@ -1,0 +1,15 @@
+.error_message {
+    background-color: red;
+}
+
+.success_message {
+    background-color: green;
+}
+
+.info_message {
+    background-color: cyan;
+}
+
+h1.demo {
+    color: brown;
+}

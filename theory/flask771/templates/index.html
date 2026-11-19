@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статика в шаблоне</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div>
+        <h1 class="demo">СТАТИКА через эндпоинт 'static'</h1>
+        <a href="{{ url_for('upload') }}">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="upload">
+        </a>
+    </div>
+    <div>
+        <h1 class="demo">СВОЙ МАРШРУТ 'uploads_folder'</h1>
+        <img src="{{ url_for('uploads_folder', filename='logo.png') }}" alt="upload">
+    </div>
+
+</body>
+
+</html>
