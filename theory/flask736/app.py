@@ -1,15 +1,7 @@
-from flask import (
-    Flask,
-    render_template,
-    redirect,
-    url_for,
-    request,
-)
+from flask import Flask, render_template, request
 from forms import RegistrationForm
 import os
-
 from utils import load_json, save_json
-
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.urandom(256)

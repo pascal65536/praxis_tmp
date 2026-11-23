@@ -6,20 +6,19 @@ import string
 
 class DemoForm(FlaskForm):
 
-    
     def validator_url(self, field):
         url = field.data
-        if "vk.com" in url or "ok.ru" in url:
+        if "vk.ru" in url or "ok.ru" in url or "vk.com" in url:
             return
-        raise ValidationError("URL должен содержать ссылки на ВК или ОК.")
+        msg = "URL должен содержать ссылки на ВК или ОК"
+        raise ValidationError(msg)
 
     def validator_username(self, field):
         username = field.data
         if set(username) <= set(string.ascii_lowercase + string.digits + "_"):
             return
-        raise ValidationError(
-            "Имя пользователя должно содержать только латинские буквы, цифры и подчеркивание."
-        )
+        msg = "Имя пользователя должно содержать только латинские буквы, цифры и подчеркивание"
+        raise ValidationError(msg)
 
     is_correct = BooleanField("is_correct")
     username = StringField("Username", validators=[DataRequired(), validator_username])
