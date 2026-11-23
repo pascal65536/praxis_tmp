@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
 from wtforms import (
     StringField,
@@ -6,26 +6,15 @@ from wtforms import (
     BooleanField,
     TextAreaField,
     PasswordField,
-    FileField,
-    TelField,
     URLField,
     EmailField,
     ColorField,
     RadioField,
-    Flags,
     DateField,
 )
-from wtforms.validators import (
-    DataRequired,
-    Email,
-    Length,
-    NumberRange,
-    ValidationError,
-    EqualTo,
-)
+from wtforms.validators import DataRequired, Email, ValidationError
 import string
 import os
-
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.urandom(256)
@@ -43,15 +32,15 @@ class DemoForm(FlaskForm):
         url = field.data
         if "vk.ru" in url or "ok.ru" in url or "vk.com" in url:
             return
-        raise ValidationError("URL должен содержать ссылки на ВК или ОК.")
+        msg = "URL должен содержать ссылки на ВК или ОК"
+        raise ValidationError(msg)
 
     def validator_username(self, field):
         username = field.data
         if set(username) <= set(string.ascii_lowercase + string.digits + "_"):
             return
-        raise ValidationError(
-            "Имя пользователя должно содержать только латинские буквы, цифры и подчеркивание."
-        )
+        msg = "Имя пользователя должно содержать только латинские буквы, цифры и подчеркивание"
+        raise ValidationError(msg)
 
     username = StringField("Username", validators=[DataRequired(), validator_username])
     is_correct = BooleanField("Bool", validators=[DataRequired()])
