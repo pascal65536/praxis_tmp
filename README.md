@@ -26,7 +26,7 @@
 7. [Логический тип данных (`bool`)](theory/180.md)
 8. [Циклы](theory/190.md)
 9. [Цикл `while`](theory/200.md)
-10. [Цикл `for`](theory/210.md)
+1. [Цикл `for`](theory/210.md)
 1. [Строки](theory/220.md)
 2. [Списки](theory/230.md)
 3. [Файлы](theory/240.md)
