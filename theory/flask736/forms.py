@@ -24,27 +24,41 @@ class RegistrationForm(FlaskForm):
         username = field.data
         user_lst = load_json("data", "user.json")
         for user in user_lst:
-            if username == user.get('username'):
+            if username == user.get("username"):
                 raise ValidationError("Такой пользоваетель уже зарегистрирован.")
         if username in ["admin", "root", "superuser", "director", "chief", "boss"]:
             raise ValidationError("Такое имя пользоваетеля запрещено.")
         if not (set(username) <= set(string.ascii_lowercase + string.digits + "_")):
-            raise ValidationError("Имя пользователя должно содержать латинские буквы, цифры и подчеркивание.")
+            msg = "Имя пользователя должно содержать латинские буквы, цифры и подчеркивание."
+            raise ValidationError(msg)
 
-    username = StringField("Имя пользователя", 
+    username = StringField(
+        "Имя пользователя",
         validators=[
-            DataRequired(), 
-            Length(min=4, max=25, message="Имя пользователя должно быть длиной от 4 до 25 символов."), 
-            validate_username
-            ])
-    password = PasswordField("Пароль", 
+            DataRequired(),
+            Length(
+                min=4,
+                max=25,
+                message="Имя пользователя должно быть длиной от 4 до 25 символов.",
+            ),
+            validate_username,
+        ],
+    )
+
+    password = PasswordField(
+        "Пароль",
+        validators=[DataRequired(), validate_password],
+    )
+
+    confirm = PasswordField(
+        "Повтор пароля",
         validators=[
-            DataRequired(), 
-            validate_password
-            ])
-    confirm = PasswordField("Повтор пароля",
-        validators=[
-            DataRequired(), 
-            EqualTo("password", message="Пароли должны совпадать.")
-            ])
+            DataRequired(),
+            EqualTo(
+                "password",
+                message="Пароли должны совпадать.",
+            ),
+        ],
+    )
+    
     submit = SubmitField("Регистрация")

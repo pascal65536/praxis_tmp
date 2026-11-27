@@ -7,14 +7,10 @@ app = Flask(__name__)
 def index():
     if request.method == "POST":
         print(request.form)
-        
         username = request.form["username"]
         email = request.form["email"]
-
         # Обработка данных формы
         msg = f"Имя пользователя: {username}, Email: {email}"
-
-        print(msg)
         return msg
     else:
         return render_template("index.html")
